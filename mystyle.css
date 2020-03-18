@@ -1,7 +1,7 @@
 
 
 body {
-    background-color: lightblue; 
+    background-color: rgb(67, 166, 199); 
     background-image: url('https://raw.githubusercontent.com/GulMag/GulMag.github.io/master/x.jpg');
 }
 
@@ -85,7 +85,7 @@ body {
 
 /* Style the header */
 .header {
-  background-color: #f1f1f1;
+  background-color: #71a3c0;
   padding: 20px;
   text-align: center;
 }
