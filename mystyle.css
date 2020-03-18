@@ -5,7 +5,9 @@ body {
     background-image: url('https://raw.githubusercontent.com/GulMag/GulMag.github.io/master/x.jpg');
 }
 
-
+p {
+    margin-left: 20px;
+}
 
 h1 {
     color: navy; 
