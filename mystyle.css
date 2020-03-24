@@ -23,6 +23,7 @@ dl {
 dt {
   color: rgb(5, 70, 90);
   font-style: bold;
+  font-size: 4;
 }
 
 * {
@@ -56,11 +57,6 @@ html {
     font-family: "Lucida Sans", sans-serif;
   }
   
-.header {
-    background-color: #9933cc;
-    color: #ffffff;
-    padding: 15px;
-  }
   
   .menu ul {
     list-style-type: none;
@@ -87,9 +83,6 @@ html {
   box-sizing: border-box;
 }
 
-body {
-  margin: 0;
-}
 
 /* Style the header */
 .header {
@@ -244,3 +237,5 @@ body {
     padding: 0;
   }
 }
+/* Blog Box*/
+/******************************************************/
