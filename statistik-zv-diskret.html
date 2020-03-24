@@ -19,14 +19,53 @@
     </div>
     <!------------------------------------------------------->
 
-    <DL>
-        <DT>Diskrete Zufallsvariable</DT>
-        <DD>Eine Variable X, die jedem möglichen Elementarereignis
-            e ∈ E eines Zufallsexperimentes eine Zahl X(e) zuordnet, 
-            wird als Zufallsvariable bezeichnet.</DD>
-    </DL>
+    <dl title="Definitionen Diskrete Zufallsvariable">
+        <dt>Diskrete Zufallsvariable</dt>
+        <dd>Eine Variable X, die jedem möglichen Elementarereignis
+            e &isin; E eines Zufallsexperimentes eine Zahl X(e) zuordnet, 
+            wird als Zufallsvariable bezeichnet.</dd>
+        <dt>Wahrscheinlichkeitsfunktion</dt>
+        <dd>Die Funktion f(x), die jeder Zahl x die Wahrscheinlichkeit P(X=x) 
+            zuordnet, heißt Wahrscheinlichkeitsfunktion der diskreten Zufallsvariablen X.
+            <pre>
+            f(x)=P(X=x)
+            </pre>
+        </dd>
+        <dt>Verteilungsfunktion </dt>
+        <dd>Um die Wahrscheinlichkeitsverteilung einer ZV X zu definieren,
+            genügt es Ereignissen des Typs {X &le; x} Wahrscheinlichkeiten zuzuordnen.
+            Die Funktion F(x), die jedem x die Wahrscheinlichkeit P(X &le; x) zuordnet
+            nennt man die theoretische Verteilungsfunktion der ZV X. 
+            <pre>
+            F(x) = P(X &le; x)
+            </pre> 
+            Eigenschaften:
+            <ul>
+                <li>F(x) nimmt nur Werte zwischen 0 und 1 an</li>
+                <li>F(x) steigt für wachsendes x monoton an</li>
+                <li>es muss irgenwie einfacher gehen mathe symbole einzufügen</li>
+            </ul>
+        </dd>
+        <dt>Erwartungswert</dt>
+        <dd>Entspricht der gewichteten Summe der Merkmalsausprägungen, wobei die Gewichte die Wahrscheinlichkeiten sind. Der Erwartungswert
+            ist ein theoretischer Wert (theoretischer Lageparameter), der die zentrale
+            Tendenz einer diskreten ZV charakterisiert, indem die Merkmalsausprägungen
+            mit ihrer Wahrscheinlchkeit multipliziert und dann summiert werden. 
+            <pre>
+                E(X) = &mu; = &sum; xp
+            </pre> 
+            Eigenschaften:
+            <ul>
+                <li>Linearität: E(aX+b) = aE(X) + b</li>
+                <li>Additivität: E(X+Y)= E(X) + E(Y)</li>
+            </ul>
+        </dd>
+        <dt>Arithmetisches Mittel</dt>
+        <dd>Das arithmetische Mittel ist ein empirischer Wert (empirischer Lageparameter), 
+            der die zentrale Tendenz einer realen Beobachtung (Stichprobe) charakterisiert, 
+            indem die Merkmalsausprägungen mit ihrer relativen Häufigkeit multipliziert und dann summiert werden.
+        </dd>
+    </dl>
     
-
-
 </body> 
 </html>
