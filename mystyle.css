@@ -24,6 +24,8 @@ dt {
   color: rgb(5, 70, 90);
   font-style: bold;
   font-size: 4;
+  margin-left: 20px;
+  padding: 15px;
 }
 
 * {
