@@ -16,8 +16,9 @@ h1 {
 
 dl {
   margin-left: 40px;
+  margin-right: 40px;
   margin-bottom: 20px;
-  background-color: #7bc3db;
+  background-color: #a4e8ff;
 }
 
 dt {
@@ -25,6 +26,10 @@ dt {
   font-style: bold;
   font-size: 4;
   margin-left: 20px;
+  padding: 15px;
+}
+
+dd {
   padding: 15px;
 }
 
