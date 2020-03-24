@@ -2,6 +2,7 @@
 
 body {
     background-color: rgb(67, 166, 199); 
+    margin-left: 80px;
 }
 
 p {
@@ -70,10 +71,7 @@ html {
 
 
 
-    <head>
-    <title>CSS Website Layout</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+
 * {
   box-sizing: border-box;
 }
