@@ -10,7 +10,7 @@ p {
 }
 
 h1 {
-    color: navy; 
+    color: rgb(0, 87, 102); 
     margin-left: 20px;
 }
 
@@ -18,19 +18,18 @@ dl {
   margin-left: 40px;
   margin-right: 40px;
   margin-bottom: 20px;
-  background-color: #a4e8ff;
 }
 
 dt {
   color: rgb(5, 70, 90);
   font-style: bold;
-  font-size: 4;
+  font-size: 5;
   margin-left: 20px;
-  padding: 15px;
+  padding: 10px;
 }
 
 dd {
-  padding: 15px;
+  padding: 10px;
 }
 
 * {
