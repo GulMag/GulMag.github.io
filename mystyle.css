@@ -264,8 +264,7 @@ html {
   color: green;
 }*/
 
-.btn-group .button {
-  background-color: none; /* Green #4CAF50*/
+.btn-group .button { /* Green #4CAF50*/
   border: 1px solid black;
   color: white;
   padding: 15px 32px;
