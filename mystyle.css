@@ -83,9 +83,6 @@ html {
     background-color: #0099cc;
   }
 
-
-
-
 * {
   box-sizing: border-box;
 }
@@ -194,6 +191,9 @@ html {
 
 /******************************************************/
 /* Blog Box*/
+* {
+  box-sizing: border-box;
+}
 /* Create two unequal columns that floats next to each other */
 /* Left column */
 .leftcolumn {   
