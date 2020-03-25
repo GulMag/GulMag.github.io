@@ -248,7 +248,7 @@ html {
 /* Blog Box*/
 
 
-.btn {
+/*.btn {
   border: none;
   background-color: inherit;
   padding: 14px 28px;
@@ -257,10 +257,31 @@ html {
   display: inline-block;
   width: 100%;
   padding: 20px;
-}
+}+/
 
-/* Green */
+/* Green 
 .green {
   color: green;
+}*/
+
+.btn-group .button {
+  background-color: #4CAF50; /* Green */
+  border: 1px solid green;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  width: 150px;
+  display: block;
+}
+
+.btn-group .button:not(:last-child) {
+  border-bottom: none; /* Prevent double borders */
+}
+
+.btn-group .button:hover {
+  background-color: #3e8e41;
 }
 /******************************************************/
