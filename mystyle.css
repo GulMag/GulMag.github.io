@@ -90,7 +90,7 @@ html {
 
 /* Style the header */
 .header {
-  background-color: transparent; /* #2d7097*/
+  background-color: #2d7097;
   padding: 20px;
   text-align: center;
 }
