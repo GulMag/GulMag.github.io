@@ -49,20 +49,30 @@
             <p>Try to find places where
               one or several strings (also called patterns) are found within a
               larger string (searched text). There are 2 basic variants: </p>
-            <p.ex1>Given a pattern, find its occurrences in any initially unknown
+            <p class="ex1">Given a pattern, find its occurrences in any initially unknown
               text: Solutions by preprocessing the pattern using finite automata
               models or combinatorial properties of strings. In COMPSCI 369: only algorithms of this kind.
-            </p.ex1>
-            <p.ex1>Given a text, find occurrences of any initially unknown pattern.
+            </p>
+            <p class="ex1">Given a text, find occurrences of any initially unknown pattern.
               Solutions by indexing the text with the help of trees or finite
               automata (e.g. at Google).
-            </p.ex1>
-            <p>Navive Brute Force Algorithm<br>
+            </p>
+            <p>Examples of String Searching algorithms
+              <ul>
+                <li>Naive</li>
+                <li>Rabin-Karp</li>
+                <li>Finite state automaton</li>
+                <li>Knuth-Morris-Pratt</li>
+                <li>Boyer-Moore</li>
+              </ul>
+            </p>
+            <p>Navive (Brute Force) Algorithm<br>
                 <code><pre>
                   for ( j = 0; j <= n - m; j++ ) { <br>
                     for ( i = 0; i < m && x[i] == y[i + j]; i++ ); <br></m>
                     if ( i >= m ) return j; <br>
-                  } </pre></code></p>
+                  } </pre></code>
+            </p>
             
           </div>
           <!--<div class="card">
