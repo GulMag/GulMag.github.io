@@ -43,38 +43,27 @@
         <!------------------- LEFT COLUMN ------------------>
         <div class="leftcolumn">
           <div class="card">
-            <h2>String matching or searching algorithms</h2>
-            <h5>March 27th, 2020</h5>
-            <!-- <div class="fakeimg" style="height:200px;">Image</div> -->
-            <p>Try to find places where
-              one or several strings (also called patterns) are found within a
-              larger string (searched text). There are 2 basic variants: 
-              <ul>
-                <li>Given a pattern, find its occurrences in any initially unknown
-                  text: Solutions by preprocessing the pattern using finite automata
-                  models or combinatorial properties of strings. In COMPSCI 369: only algorithms of this kind.</li>
-                <li>Given a text, find occurrences of any initially unknown pattern.
-                  Solutions by indexing the text with the help of trees or finite
-                  automata (e.g. at Google).</li>
-              </ul>
-            </p>
-            <p>Examples of Single-pattern algorithms 
-              <ul>
-                <li>Naive (Brute Force) Algorithm<br>
-                  <code><pre>
-                    for ( j = 0; j <= n - m; j++ ) { <br>
-                      for ( i = 0; i < m && x[i] == y[i + j]; i++ ); <br></m>
-                      if ( i >= m ) return j; <br>
-                    } </pre></code>
-                </li>
-                <li>Rabin-Karp</li>
-                <li>Finite state automaton</li> 
-                <li>Knuth-Morris-Pratt</li>
-                <li>Boyer-Moore</li>
-              </ul>
-            </p>
-            
-          </div>
+            <h2>Indexing Method</h2>
+            <!--<h5>March 2, 2017</h5> 
+            <div class="fakeimg" style="height:200px;"></div> -->
+            <img src="pics/classification.png" alt="Trulli" style="width:200px;height:100px;">
+            <p>Because the string is the central notion in this area, stringology has
+              become the nickname of this subfield of algorithmic research. To achieve
+              fast text searching, we can prepare either the pattern or the text or both.
+              This preparation is called preprocessing. We can use preprocessing as the
+              criterion for a general classification of text searching approaches. There are
+              four categories in this classification.
+              <ol>
+                <li>Neither the pattern nor the text is preprocessed. Elementary algorithms belong in this category.</li>
+                <li>The pattern is preprocessed. Pattern matching automata belong in
+                  this category.</li>
+                <li>The text is preprocessed. Factor automata and index methods belong
+                  in this category.</li>
+                <li>Both the text and the pattern are preprocessed. Signature methods,
+                  pattern matching automata and factor automata belong in this category.</li>
+              </ol></p>
+          </div> 
+        </div>
           <div class="card">
             <h2>Classification of text searching approaches</h2>
             <!--<h5>March 2, 2017</h5> 
@@ -96,6 +85,38 @@
                   pattern matching automata and factor automata belong in this category.</li>
               </ol></p>
           </div> 
+        </div>
+        <div class="card">
+          <h2>String matching or searching algorithms</h2>
+          <h5>March 27th, 2020</h5>
+          <!-- <div class="fakeimg" style="height:200px;">Image</div> -->
+          <p>Try to find places where
+            one or several strings (also called patterns) are found within a
+            larger string (searched text). There are 2 basic variants: 
+            <ul>
+              <li>Given a pattern, find its occurrences in any initially unknown
+                text: Solutions by preprocessing the pattern using finite automata
+                models or combinatorial properties of strings. In COMPSCI 369: only algorithms of this kind.</li>
+              <li>Given a text, find occurrences of any initially unknown pattern.
+                Solutions by indexing the text with the help of trees or finite
+                automata (e.g. at Google).</li>
+            </ul>
+          </p>
+          <p>Examples of Single-pattern algorithms 
+            <ul>
+              <li>Naive (Brute Force) Algorithm<br>
+                <code><pre>
+                  for ( j = 0; j <= n - m; j++ ) { <br>
+                    for ( i = 0; i < m && x[i] == y[i + j]; i++ ); <br></m>
+                    if ( i >= m ) return j; <br>
+                  } </pre></code>
+              </li>
+              <li>Rabin-Karp</li>
+              <li>Finite state automaton</li> 
+              <li>Knuth-Morris-Pratt</li>
+              <li>Boyer-Moore</li>
+            </ul>
+          </p>
         </div>
 
         <!------------------- RIGHT COLUMN ------------------>
