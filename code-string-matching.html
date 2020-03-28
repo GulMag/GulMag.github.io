@@ -43,32 +43,38 @@
         <!------------------- LEFT COLUMN ------------------>
         <div class="leftcolumn">
           <div class="card">
-            <h2>Indexing Method</h2>
+            <h2>Fuzzy String Matching</h2>
             <!--<h5>March 2, 2017</h5> 
             <div class="fakeimg" style="height:200px;"></div> -->
-            <img src="pics/classification.png" alt="Trulli" style="width:200px;height:100px;">
-            <p>Because the string is the central notion in this area, stringology has
-              become the nickname of this subfield of algorithmic research. To achieve
-              fast text searching, we can prepare either the pattern or the text or both.
-              This preparation is called preprocessing. We can use preprocessing as the
-              criterion for a general classification of text searching approaches. There are
-              four categories in this classification.
-              <ol>
-                <li>Neither the pattern nor the text is preprocessed. Elementary algorithms belong in this category.</li>
-                <li>The pattern is preprocessed. Pattern matching automata belong in
-                  this category.</li>
-                <li>The text is preprocessed. Factor automata and index methods belong
-                  in this category.</li>
-                <li>Both the text and the pattern are preprocessed. Signature methods,
-                  pattern matching automata and factor automata belong in this category.</li>
-              </ol></p>
+            <img src="#" alt="Trulli" style="width:200px;height:100px;">
+            <p>Fuzzy string matching is the technique of finding strings that match a pattern approximately (rather than exactly). 
+              I.e., it is a type of search that will find matches even when users misspell words or enter only partial words for the search. 
+              It is also known as approximate string matching.</p>
+            <p>FuzzyWuzzy is a library of Python which is used for string matching.
+              Basically it uses Levenshtein Distance to calculate the differences between sequences.
+            </p>
+            <p></p>
           </div> 
+          <div class="card">
+            <h2>Levenshtein Distance</h2>
+            <!--<h5>March 2, 2017</h5> 
+            <div class="fakeimg" style="height:200px;"></div> -->
+            <img src="#" alt="Trulli" style="width:200px;height:100px;">
+            <p>The Levenshtein distance is a string metric for measuring the difference between two sequences. 
+              Informally, the Levenshtein distance between two words is the minimum number of single-character edits (insertions, deletions or substitutions) 
+              required to change one word into the other. It is named after the Soviet mathematician Vladimir Levenshtein, 
+              who considered this distance in 1965.can also be computed between two longer strings, but the cost to compute it, which is roughly proportional to the product of the two string lengths, makes this impractical. Thus, when used to aid in fuzzy string searching in applications such as record linkage, the compared strings are usually short to help improve speed of comparisons.</p>
+            <p>In linguistics, the Levenshtein distance is used as a metric to quantify the linguistic distance, 
+              or how different two languages are from one another. It is related to mutual intelligibility, the higher the linguistic distance, 
+              the lower the mutual intelligibility, and the lower the linguistic distance, the higher the mutual intelligibility.</p>
+          </div> 
+
         </div>
           <div class="card">
             <h2>Classification of text searching approaches</h2>
             <!--<h5>March 2, 2017</h5> 
             <div class="fakeimg" style="height:200px;"></div> -->
-            <img src="pics/classification.png" alt="Trulli" width="500" height="333">
+            <img src="pics/classification.png" alt="Trulli" style="width=400px;height=300;">
             <p>Because the string is the central notion in this area, stringology has
               become the nickname of this subfield of algorithmic research. To achieve
               fast text searching, we can prepare either the pattern or the text or both.
