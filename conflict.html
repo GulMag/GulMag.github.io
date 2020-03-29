@@ -29,35 +29,135 @@
       <a href="rezepte.html">Recipes</a>
     </div>
     <!------------------------------------------------------->   
-
-
     <div class="row">
-        <div class="column">
-          <h2>Project</a></h2>
-          <p><uo>
-            <li>So far I have received one email with to links</li>
-            <li>Bli</li>
-            <li>Blu</li>
-          </uo></p>        
-        </div>
-
-        <div class="column">
-          <h2><a href="https://www.strausscenter.org/ccaps-news/hendrix-and-salehyan-release-new-scad-conflict-data-for-africa-and-latin-america-2.html" target="_blank">SCAD</a></h2>
+      <div class="leftcolumn">
+        <div class="card">
+          <h2>SCAD Codebook</h2>
           <p>
-            One is from the Robert Strauss Center for International Security and Law.
-            It's a link to a post from August 2016 regarding the release of new data for Africa and Latin America. 
-            As part of the Strauss Center’s Climate Change and African Political Stability (CCAPS) program, the Social Conflict Analysis Database (SCAD) team released updated data for Africa and Latin America covering conflicts through December 2015. The SCAD research project is led by Strauss Center senior fellows Cullen Hendrix and Idean Salehyan.
-            SCAD includes protests, riots, strikes, inter-communal conflict, government violence against civilians, and other forms of social conflict not systematically tracked in other conflict datasets. Each event record contains information on the location, timing, and magnitude of social conflict events, as well as the actors, targets, issues of contention, and government response. While other data sources contain rich information about armed conflict in Africa and other regions, the goal of the SCAD project is to provide researchers, journalists, NGOs, and the policy community more detail about other forms of social conflict.
-          </p>        
-        </div>
-      
-        <div class="column">
-          <h2><a href = "https://acleddata.com/dashboard/#/dashboard" target="_blank">ACLED</a></h2>
+            The Social Conflict Analysis Database (SCAD) contains information on protests, riots, strikes, and other social disturbances in Africa, Latin American and the Caribbean. 
+            Whereas conflict data is generally available for large-scale events such as civil and international war, 
+            the purpose of this dataset is to compile information on other types of social and political disorder. 
+            See <a href="www.scaddata.org">www.scaddata.org</a> for further information about the project.
+            The primary source of information for this dataset comes from searches of Associated Press and 
+            Agence France Presse newswires, as compiled by the Lexis-Nexis news service.
+          </p>
+          <h5>Search Procedure in Lexis-Nexis</h5>
           <p>
-            The Armed Conflict Location & Event Data Project (ACLED) is a disaggregated data collection, analysis, and crisis mapping project. ACLED collects the dates, actors, locations, fatalities, and modalities of all reported political violence and protest events across Africa, South Asia, Southeast Asia, the Middle East, Central Asia and the Caucasus, and Southeastern and Eastern Europe and the Balkans. The ACLED team conducts analysis to describe, explore, and test conflict scenarios, and makes both data and analysis open for free use by the public.
-          </p>        
+             <ol>
+               <li>Click on the “Browse” link at the top of the page.</li>
+               <li>Click “News”, then “Newswires and Press Releases”</li>
+               <li>Select “Agence France Presse – English”, “The Associated Press”, “Associated Press Online,” and
+                “Associated Press International”. Then click “OK – Continue”.</li>
+               <li>Click on “Advanced Options”</li>
+               <li>In the Build Your Own Segment Search dialogue box, enter your search terms: 
+                 HLEAD(country name) AND (protest OR strike OR riot OR violence OR attack).</li>
+             </ol>
+          </p>
+          <h5>Sorting Procedure</h5>
+          <p>
+            <ol>
+              <li>Begin with the oldest listed story and proceed chronologically. For each story, 
+                determine if this information is relevant to the data project. If not, discard the story.</li>
+              <li>During periods of civil conflict, defined by the start and end dates in the 
+                Uppsala Armed Conflict Database (see below for further details), code violent events 
+                associated with the civil conflicts but make sure to code these cases as ACD questionable = 1</li>
+              <li>Sometimes, many articles will cover a single news story or event. Group these articles together 
+                as a single event. Avoid double or triple counting a single event if there are multiple articles 
+                chronicling a story. However, use the most recently cited and/or most common estimates for 
+                disputed information, such as the number of deaths.</li>
+              <li>Sometimes, a single article will cover multiple events. Determine if the 
+                main actor(s), target(s), and issue(s) are different, and if so, code these as distinct events.</li>
+              <li>Code a new event if the actor(s), target(s), and issue(s) are different or if there is substantial 
+                time that elapses between one event and another. If the actors, targets, and issues are the same, 
+                but there is a brief lull in activity, code it as the same event, so long as there is significant 
+                “momentum” linking the time periods.</li>
+            </ol>
+          </p>
+        </div>
+        <div class="card">
+          <h5>SCAD Variables</h5>
+          <dl>
+            <dt>Identification scheme</dt>
+            <dd>The “country code” column provides the Correlates of War (http://www.correlatesofwar.org/) 
+              numeric designation of the country. The “id” column lists the event number. 
+              These fields are combined to generate a single, unique “event id” code.</dd>
+            <dt>Start Date</dt>
+            <dd>Lists the day, month, and year in DD/MM/YYY format for when the event begins. 
+              If the exact day cannot be identified, this is the best approximation of the start date. 
+              The start year (styr), start month (stmo), start day (stday) are listed in separate columns.</dd>
+            <dt>End Date</dt>
+            <dd>Lists the day, month, and year in DD/MM/YYYY format for when the event ends. If the exact day 
+              cannot be identified, this is the best approximation of the end date. The end year (eyr), 
+              end month (emo), end day (eday) are listed in separate columns.</dd>
+            <dt>Duration</dt>
+            <dd>The number of days the event lasted.</dd>
+            <dt>Etype (categorical)</dt>
+            <dd></dd>
+            <dt></dt>
+            <dd></dd>
+            <dt></dt>
+            <dd></dd>
+            <dt></dt>
+            <dd></dd>
+            <dt></dt>
+            <dd></dd>
+            <dt></dt>
+            <dd></dd>
+            <dt></dt>
+            <dd></dd>
+            <dt></dt>
+            <dd></dd>
+            <dt></dt>
+            <dd></dd>
+            <dt></dt>
+            <dd></dd>
+            <dt></dt>
+            <dd></dd>
+            <dt></dt>
+            <dd></dd>
+            <dt></dt>
+            <dd></dd>
+            <dt></dt>
+            <dd></dd>
+            <dt></dt>
+            <dd></dd>
+            <dt></dt>
+            <dd></dd>
+            <dt></dt>
+            <dd></dd>
+            <dt></dt>
+            <dd></dd>
+          </dl>
         </div>
       </div>
+    </div>
+
+    <div class="row">
+      <div class="column">
+        <h2>Project</a></h2>
+        <p><uo>
+          <li>So far I have received one email with to links</li>
+          <li>Bli</li>
+          <li>Blu</li>
+        </uo></p>        
+      </div>
+      <div class="column">
+        <h2><a href="https://www.strausscenter.org/ccaps-news/hendrix-and-salehyan-release-new-scad-conflict-data-for-africa-and-latin-america-2.html" target="_blank">SCAD</a></h2>
+        <p>
+          One is from the Robert Strauss Center for International Security and Law.
+          It's a link to a post from August 2016 regarding the release of new data for Africa and Latin America. 
+          As part of the Strauss Center’s Climate Change and African Political Stability (CCAPS) program, the Social Conflict Analysis Database (SCAD) team released updated data for Africa and Latin America covering conflicts through December 2015. The SCAD research project is led by Strauss Center senior fellows Cullen Hendrix and Idean Salehyan.
+          SCAD includes protests, riots, strikes, inter-communal conflict, government violence against civilians, and other forms of social conflict not systematically tracked in other conflict datasets. Each event record contains information on the location, timing, and magnitude of social conflict events, as well as the actors, targets, issues of contention, and government response. While other data sources contain rich information about armed conflict in Africa and other regions, the goal of the SCAD project is to provide researchers, journalists, NGOs, and the policy community more detail about other forms of social conflict.
+        </p>        
+      </div>
+      <div class="column">
+        <h2><a href = "https://acleddata.com/dashboard/#/dashboard" target="_blank">ACLED</a></h2>
+        <p>
+          The Armed Conflict Location & Event Data Project (ACLED) is a disaggregated data collection, analysis, and crisis mapping project. ACLED collects the dates, actors, locations, fatalities, and modalities of all reported political violence and protest events across Africa, South Asia, Southeast Asia, the Middle East, Central Asia and the Caucasus, and Southeastern and Eastern Europe and the Balkans. The ACLED team conducts analysis to describe, explore, and test conflict scenarios, and makes both data and analysis open for free use by the public.
+        </p>        
+      </div>
+    </div>
+
     
-    <p><form><input type="button" value="Go back!" onclick="history.back()"></form></p>
+    
 </html>
