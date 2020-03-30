@@ -1,172 +1,155 @@
 <!DOCTYPE html>
 <html>
-    <head><link rel="stylesheet" type="text/css" href="mystyle.css"></head>
-    <style>
-        body {
-          /*background-image: url('back_stv.jpg');*/
-          background-repeat: no-repeat;
-          background-attachment: fixed;
-          background-size: cover;
-        }
-        .header {
-          background-color: transparent;
-        }
-    </style>
+  <head><link rel="stylesheet" type="text/css" href="mystyle.css"></head>
+  <style>
+    body {
+      /*background-image: url('back_stv.jpg');*/
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+    .header {
+      background-color: transparent;
+    }
+  </style>
 
-    <div class="header">
-        <h1>String Matching</h1>
-        <p>Resize the browser window to see the responsive effect.</p>
-    </div>
+  <div class="header">
+    <h1>String Matching</h1>
+    <p>Resize the browser window to see the responsive effect.</p>
+  </div>
       
-    <!--------------------Navigation Bar--------------------->
-    <div class="topnav">
-        <a href="index.html">Home</a>
-        <!--<div class="dropdown">
-          <button class="dropbtn">Economics</button>
-          <div class="dropdown-content">
-          <a href="conflict.html">Conflict Data</a>
-          <a href="co2.html">CO2 Emission</a>
-          <a href="political.html">Political Economy</a>
-          </div>
-        </div> -->
-        <!--<a href="startrek.html">Star Trek</a>
-        <a href="startrek-voyager.html">Star Trek: Voyager</a>       -->
-      </div>
-      <!------------------------------------------------------->
+  <!--------------------Navigation Bar--------------------->
+  <div class="topnav">
+      <a href="index.html">Home</a>
+  </div>
+  <!------------------------------------------------------->
 
+  <body>
 
-    <body>
-
-
-     <div class="row">
-
-        <!------------------- LEFT COLUMN ------------------>
-        <div class="leftcolumn">
-          <div class="card">
-            <h2>String Matching in R</h2>
-            <h5><code>merge</code> Merge Two Datasets and Match Columns</h5>
-            <!-- <div class="fakeimg" style="height:200px;"></div> -->
-            <!-- <img src="#" alt="Trulli" style="width:200px;height:100px;"> -->
-            <p>
+    <div class="row">
+      <!------------------- LEFT COLUMN ------------------>
+      <div class="leftcolumn">
+        <div class="card">
+          <h2>String Matching in R</h2>
+          <h5><code>merge</code> Merge Two Datasets and Match Columns</h5>
+          <p padding="20px" background="rgba(0, 0, 0, 0.05)"><code><pre>
+            merge(x, y, ...)
+            merge.default(x, y, ...)
+            merge.data.frame(x, y, by = intersect(names(x), names(y)), by.x = by,
+              by.y = by, all = FALSE, all.x = all, all.y = all, sort = TRUE,
+              suffixes = c(".x", ".y"), incomparables = NULL, ...)
+          </pre></code></p>
+          <h5><code>cbind rbind</code>Building a Matrix from Columns or Rows</h5>
+          <p>
+            Returns a matrix that is pieced together from the specified vectors and/or matrices. 
+            The functions cbind and rbind are generic. In particular, there are cbind methods for data 
+            frames and time series, and rbind method for data frames.
+          </p>
+          <p><pre><code>
+            cbind(...) <br>
+            rbind(...) <br>
+            ...</code>vectors and/or matrices. Missing values (NAs) are allowed.</pre>
+          </p>
+          <h5><code>match</code> Match Items against a Table</h5>
+          <p>
+            Returns a vector of the positions in table of the elements of x.
+          </p>
+        </div> 
+        <div class="card">
+          <h2>Fuzzy String Matching</h2>
+          <p>Fuzzy string matching is the technique of finding strings that match a pattern approximately (rather than exactly). 
+            I.e., it is a type of search that will find matches even when users misspell words or enter only partial words for the search. 
+            It is also known as approximate string matching.</p>
+          <p>FuzzyWuzzy is a library of Python which is used for string matching.
+            Basically it uses Levenshtein Distance to calculate the differences between sequences.</p>
+          <p padding="20px" background="rgba(0, 0, 0, 0.05)">
+            <code>
+              pip install fuzzywuzzy <br>   
+              pip install python-Levenshtein
+            </code>
+          </p>
+        </div> 
+        <div class="card">
+          <h2>Levenshtein Distance</h2>
+          <p>The Levenshtein distance is a string metric for measuring the difference between two sequences. 
+            Informally, the Levenshtein distance between two words is the minimum number of single-character edits (insertions, deletions or substitutions) 
+            required to change one word into the other. It is named after the Soviet mathematician Vladimir Levenshtein, 
+            who considered this distance in 1965.can also be computed between two longer strings, but the cost to compute it, which is roughly proportional to the product of the two string lengths, makes this impractical. Thus, when used to aid in fuzzy string searching in applications such as record linkage, the compared strings are usually short to help improve speed of comparisons.</p>
+          <p>In linguistics, the Levenshtein distance is used as a metric to quantify the linguistic distance, 
+            or how different two languages are from one another. It is related to mutual intelligibility, the higher the linguistic distance, 
+            the lower the mutual intelligibility, and the lower the linguistic distance, the higher the mutual intelligibility.</p>
+        </div> 
+        <div class="card">
+          <h2>Classification of text searching approaches</h2>
+          <!--<h5>March 2, 2017</h5> 
+          <div class="fakeimg" style="height:200px;"></div> -->
+          <img src="pics/classification.png" alt="Trulli" style="width=400px;height=300;">
+          <p>Because the string is the central notion in this area, stringology has
+            become the nickname of this subfield of algorithmic research. To achieve
+            fast text searching, we can prepare either the pattern or the text or both.
+            This preparation is called preprocessing. We can use preprocessing as the
+            criterion for a general classification of text searching approaches. There are
+            four categories in this classification.
+            <ol>
+              <li>Neither the pattern nor the text is preprocessed. Elementary algorithms belong in this category.</li>
+              <li>The pattern is preprocessed. Pattern matching automata belong in
+                this category.</li>
+              <li>The text is preprocessed. Factor automata and index methods belong
+                in this category.</li>
+              <li>Both the text and the pattern are preprocessed. Signature methods,
+                pattern matching automata and factor automata belong in this category.</li>
+            </ol></p>
+        </div> 
+        <div class="card">
+          <h2>String matching or searching algorithms</h2>
+          <h5>March 27th, 2020</h5>
+          <p>Try to find places where
+          one or several strings (also called patterns) are found within a
+          larger string (searched text). There are 2 basic variants: 
+            <ul>
+              <li>Given a pattern, find its occurrences in any initially unknown
+              text: Solutions by preprocessing the pattern using finite automata
+              models or combinatorial properties of strings. In COMPSCI 369: only algorithms of this kind.</li>
+              <li>Given a text, find occurrences of any initially unknown pattern.
+              Solutions by indexing the text with the help of trees or finite
+              automata (e.g. at Google).</li>
+            </ul>
+          </p>
+          <p>Examples of Single-pattern algorithms 
+            <ul>
+              <li>Naive (Brute Force) Algorithm<br>
               <code><pre>
-                merge(x, y, ...)
-                merge.default(x, y, ...)
-                merge.data.frame(x, y, by = intersect(names(x), names(y)), by.x = by,
-                    by.y = by, all = FALSE, all.x = all, all.y = all, sort = TRUE,
-                    suffixes = c(".x", ".y"), incomparables = NULL, ...)
-                Arguments</pre>
-              </code>
-            </p>
-            <p>FuzzyWuzzy is a library of Python which is used for string matching.
-              Basically it uses Levenshtein Distance to calculate the differences between sequences.</p>
-            <p padding="20px" background="rgba(0, 0, 0, 0.05)">
-              <code>
-                pip install fuzzywuzzy <br>   
-                pip install python-Levenshtein
-              </code>
-            </p>
-          </div> 
-          <div class="card">
-            <h2>Fuzzy String Matching</h2>
-            <!--<h5>March 2, 2017</h5> 
-            <div class="fakeimg" style="height:200px;"></div> -->
-            <!-- <img src="#" alt="Trulli" style="width:200px;height:100px;"> -->
-            <p>Fuzzy string matching is the technique of finding strings that match a pattern approximately (rather than exactly). 
-              I.e., it is a type of search that will find matches even when users misspell words or enter only partial words for the search. 
-              It is also known as approximate string matching.</p>
-            <p>FuzzyWuzzy is a library of Python which is used for string matching.
-              Basically it uses Levenshtein Distance to calculate the differences between sequences.</p>
-            <p padding="20px" background="rgba(0, 0, 0, 0.05)">
-              <code>
-                pip install fuzzywuzzy <br>   
-                pip install python-Levenshtein
-              </code>
-            </p>
-          </div> 
-          <div class="card">
-            <h2>Levenshtein Distance</h2>
-            <!--<h5>March 2, 2017</h5> -->
-            <!--<img src="#" alt="Trulli" style="width:200px;height:100px;">-->
-            <p>The Levenshtein distance is a string metric for measuring the difference between two sequences. 
-              Informally, the Levenshtein distance between two words is the minimum number of single-character edits (insertions, deletions or substitutions) 
-              required to change one word into the other. It is named after the Soviet mathematician Vladimir Levenshtein, 
-              who considered this distance in 1965.can also be computed between two longer strings, but the cost to compute it, which is roughly proportional to the product of the two string lengths, makes this impractical. Thus, when used to aid in fuzzy string searching in applications such as record linkage, the compared strings are usually short to help improve speed of comparisons.</p>
-            <p>In linguistics, the Levenshtein distance is used as a metric to quantify the linguistic distance, 
-              or how different two languages are from one another. It is related to mutual intelligibility, the higher the linguistic distance, 
-              the lower the mutual intelligibility, and the lower the linguistic distance, the higher the mutual intelligibility.</p>
-          </div> 
-          <div class="card">
-            <h2>Classification of text searching approaches</h2>
-            <!--<h5>March 2, 2017</h5> 
-            <div class="fakeimg" style="height:200px;"></div> -->
-            <img src="pics/classification.png" alt="Trulli" style="width=400px;height=300;">
-            <p>Because the string is the central notion in this area, stringology has
-              become the nickname of this subfield of algorithmic research. To achieve
-              fast text searching, we can prepare either the pattern or the text or both.
-              This preparation is called preprocessing. We can use preprocessing as the
-              criterion for a general classification of text searching approaches. There are
-              four categories in this classification.
-              <ol>
-                <li>Neither the pattern nor the text is preprocessed. Elementary algorithms belong in this category.</li>
-                <li>The pattern is preprocessed. Pattern matching automata belong in
-                  this category.</li>
-                <li>The text is preprocessed. Factor automata and index methods belong
-                  in this category.</li>
-                <li>Both the text and the pattern are preprocessed. Signature methods,
-                  pattern matching automata and factor automata belong in this category.</li>
-              </ol></p>
-          </div> 
-          <div class="card">
-            <h2>String matching or searching algorithms</h2>
-            <h5>March 27th, 2020</h5>
-            <!-- <div class="fakeimg" style="height:200px;">Image</div> -->
-            <p>Try to find places where
-            one or several strings (also called patterns) are found within a
-            larger string (searched text). There are 2 basic variants: 
-              <ul>
-                <li>Given a pattern, find its occurrences in any initially unknown
-                text: Solutions by preprocessing the pattern using finite automata
-                models or combinatorial properties of strings. In COMPSCI 369: only algorithms of this kind.</li>
-                <li>Given a text, find occurrences of any initially unknown pattern.
-                Solutions by indexing the text with the help of trees or finite
-                automata (e.g. at Google).</li>
-              </ul>
-            </p>
-            <p>Examples of Single-pattern algorithms 
-              <ul>
-                <li>Naive (Brute Force) Algorithm<br>
-                <code><pre>
-                  for ( j = 0; j <= n - m; j++ ) { <br>
-                    for ( i = 0; i < m && x[i] == y[i + j]; i++ ); <br></m>
-                    if ( i >= m ) return j; <br>
-                  } </pre></code>
-                </li>
-                <li>Rabin-Karp</li>
-                <li>Finite state automaton</li> 
-                <li>Knuth-Morris-Pratt</li>
-                <li>Boyer-Moore</li>
-              </ul>
-            </p>
+                for ( j = 0; j <= n - m; j++ ) { <br>
+                  for ( i = 0; i < m && x[i] == y[i + j]; i++ ); <br></m>
+                  if ( i >= m ) return j; <br>
+                } </pre></code>
+              </li>
+              <li>Rabin-Karp</li>
+              <li>Finite state automaton</li> 
+              <li>Knuth-Morris-Pratt</li>
+              <li>Boyer-Moore</li>
+            </ul>
+          </p>
+        </div>
+      </div>
+
+      <!------------------- RIGHT COLUMN ------------------>
+
+      <div class="rightcolumn">
+        <div class="card" background-color: none>
+          <h2>Series</h2>
+          <div class = "btn-group">
+              <a href="#"><button class="button">Code</button></a>
+              <a href="code-string-matching.html"><button class="button">String Matching</button></a>
           </div>
         </div>
+      </div>
 
-        <!------------------- RIGHT COLUMN ------------------>
+      <!-------------------- END COLUMN ------------------->
 
-        <div class="rightcolumn">
-          <div class="card" background-color: none>
-            <h2>Series</h2>
-            <div class = "btn-group">
-                <a href="#"><button class="button">Code</button></a>
-                <a href="code-string-matching.html"><button class="button">String Matching</button></a>
-            </div>
-          </div>
-        </div>
+    </div>
 
-        <!-------------------- END COLUMN ------------------->
-
-     </div>
-
-    </body>
+  </body>
 
     <!--<p><form><input type="button" value="Go back!" onclick="history.back()"></form></p>-->
 </html>
