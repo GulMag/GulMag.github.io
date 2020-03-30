@@ -226,6 +226,11 @@ html {
    padding: 20px;
    margin-top: 20px;
 }
+.cardtext {
+  background-color: rgb(168, 168, 168)
+  padding: 20px;
+  margin-top: 20px;
+}
 
 /* Clear floats after the columns */
 .row:after {
