@@ -10,16 +10,6 @@
     <!--------------------Navigation Bar--------------------->
     <div class="topnav">
       <a href="index.html">Home</a>
-      <a href="corona.html">Corona Updates</a>
-      <div class="dropdown">
-        <button class="dropbtn">Economics</button>
-        <div class="dropdown-content">
-        <a href="conflict.html">Conflict Data</a>
-        <a href="co2.html">CO2 Emission</a>
-        <a href="political.html">Political Economy</a>
-        </div>
-      </div>
-      <a href="startrek.html">Star Trek</a>
     </div>
     <!------------------------------------------------------->   
     <div class="row">
@@ -123,6 +113,13 @@
             <dt>Notes</dt>
             <dd>When there were inconsistencies in reporting, approximations, or other potential issues with the event record, 
               this field provides comments to the user. </dd>
+            <dt>Female_Event (categorical)</dt>
+            <dd>This column notes whether women and girls play a significant role in the event in question. This is coded as one if: a. the main actor(s) in the event organize on the basis of female gender identity; b. the target(s) of the event are explicitly female; or c. the motivating issue centers on matters of specific concern to women (e.g.
+              reproductive rights). Events coded as zero may or may not involve women as participants, as women may play important roles in social organizations and protests otherwise listed. For this column to be coded as one, the main focus of the event, or the identity of the participants, must be explicitly related to women.
+              1 = yes, 0 = no</dd>
+            <dt>LGBTQ_Issue (categorical)</dt>
+            <dd>This column notes whether members of the Lesbian, Gay, Bisexual, Transgender, or Queer/Questioning (LGBTQ) community play a significant role in the event in question. This is coded as 1 if: a. the main actor(s) in the event organize on the basis of LGBTQ identity; b. the target(s) of the event are explicitly LGBTQ; or c. the motivating issue centers on matters of specific concern to the LGBTQ community (e.g. same-sex marriage). Events coded as zero may or may not involve LGBTQ individuals as participants, as they may play important roles in social organizations and protests otherwise listed. For this column to be coded as one, the main focus of the event, or the identity of the participants, must be explicitly related LGBTQ persons.
+              1 = yes, 0 = no</dd>
           </dl>
           <h5>ARMED CONFLICT VERSUS SOCIAL CONFLICT</h5>
           <p>SCAD is mainly a resource for information on social conflict and excludes armed conflict such as organized rebellions, 
