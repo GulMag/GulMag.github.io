@@ -240,6 +240,10 @@ html {
   clear: both;
 }
 
+.h2 {
+  margin-left: 20px;
+}
+
 /* Footer */
 .footer {
   padding: 20px;
