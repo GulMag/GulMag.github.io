@@ -48,7 +48,8 @@
                     <dt>Summary</dt>
                     <dd><code>
                         head(df)<br>
-                        summary(df)
+                        summary(df)<br>
+                        str()
                     </code></dd>
                     <dt>Print Output</dt>
                     <dd><code>
@@ -58,21 +59,24 @@
                     <dt>Examine features of vectors and other objects</dt>
                     <dd><code>
                       class()<br>
-                      typeof()<br>>
-                      length()<br>>
-                      attributes()<br>></code></dd>
+                      typeof()<br>
+                      length()<br>
+                      attributes()<br>
+                    </code></dd>
                     <dt>Matrix and Vector Operations</dt>
                     <dd><code>
                       colnames(df)[1] <br>
                     </code></dd>
                     <dt>R Factors</dt>
+                    <dd>Change integer values of variable into factors and then names
+
+                    </dd>
                     <dd>Factor is a data structure used for fields that takes only predefined, 
                       finite number of values (categorical data, e.g. marital status). In such case, 
                       we know the possible values beforehand and these predefined, distinct values are called levels. 
                       Following is an example of factor in R. <br>
                       <code>
-                        class(x) <br>
-                        levels(x)
+                        comp.f <- factor(comp, labels = c("private", "public"))
                       </code>
                     <dd><code><per>
                       unfactorize <- function(df){ 
@@ -81,10 +85,17 @@
                       }
                     </per></code></dd>
                     </dd>
+                    <dt>Extract unique elements</dt>
+                    <dd>
+                      This is a generic function with methods for vectors, data frames and arrays (including matrices).
+                      The array method calculates for each element of the dimension specified by MARGIN if the remaining dimensions are identical to those for an earlier element (in row-major order). This would most commonly be used for matrices to find unique rows (the default) or columns (with MARGIN = 2).
+                      <code>
+                      unique(x, incomparables = FALSE, ...)
+                    </code></dd>
                 </dl></p>
             </div> 
             <div class="card"> <!-- DPLYR-->
-                <h2><code>dplyr</code></h2>
+                <h2><code>dplyr plyr</code></h2>
                 <p><dl>
                   <dt>Retain only unique/distinct rows from an input tbl. This is similar to unique.data.frame(), but considerably faster.</dt>
                   <dd><code>distinct(.data, ..., .keep_all = FALSE)<br>
@@ -94,8 +105,21 @@
                     group_by(.data, ..., add = FALSE, .drop = group_by_drop_default(.data)) <br>
                     ungroup(x, ...)
                   </code></dd>
+                  <dt>Recode Factor</dt>
+                  <dd><code>
+                    rmapvalues(x, from = c("beta", "gamma"), to = c("two", "three"))
+                  </code></dd>
                 </dl></p>
             </div> 
+            <div class="card">
+              <h2><code>forcats</code></h2>
+              <p><dl>
+                <dt>Change Value of Levels</dt>
+                <dd><code>
+
+                </code></dd>
+              </dl></p>
+            </div>
         </div>
 
         <!------------------- RIGHT COLUMN ------------------>
