@@ -41,6 +41,7 @@ dd {
     margin-left: 30px;
   }
 
+
 .col-1 {width: 8.33%;}
 .col-2 {width: 16.66%;}
 .col-3 {width: 25%;}
@@ -99,6 +100,9 @@ html {
   text-align: center;
 }
 
+.artblock {
+  margin: 0 64px;
+}
 
 /*************************************************************/
 
@@ -251,6 +255,8 @@ html {
   background: #ddd;
   margin-top: 20px;
 }
+
+
 
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 800px) {
