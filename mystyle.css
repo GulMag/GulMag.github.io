@@ -101,8 +101,10 @@ html {
 }
 
 .artblock {
-  margin-left: 64px;
-  margin-right: 64px;
+  margin-left: 200px;
+  margin-right: 200px;
+  font-family: medium-content-title-font, Georgia, Cambria, "Times New Roman", Times, serif;
+
 }
 
 /*************************************************************/
