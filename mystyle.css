@@ -100,6 +100,11 @@ html {
   text-align: center;
 }
 
+.code {
+  margin-top: 56px;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.05);
+}
 .artblock {
   margin-left: 200px;
   margin-right: 200px;
