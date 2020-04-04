@@ -64,14 +64,16 @@
         <dt>Path Handling pathlib</dt>
         <dd>Python 3.4 introduced a new standard library for dealing with files and paths called pathlib. 
             To use it, you just pass a path or filename into a new Path() object using forward slashes and it handles the rest.
-            <code>
-                from pathlib import Path <br>
-                data_folder = Path("source_data/text_files/") <br>
-                file_to_open = data_folder / "raw_data.txt" <br>
-                f = open(file_to_open) <br>
-                print(f.read())
-            </code>
         </dd>
+        <p class="code"><pre>
+            from pathlib import Path
+
+            data_folder = Path("source_data/text_files/")
+            file_to_open = data_folder / "raw_data.txt" 
+
+            f = open(file_to_open)  
+            print(f.read())
+        </pre></p>
     </dd></p>
   </div>
   <div class="card">
@@ -89,7 +91,8 @@
         <dd>geopandas can read almost any vector-based spatial data format including 
             ESRI shapefile, GeoJSON files and more
         <code>
-            geopandas.read_file()
+            geopandas.read_file() <br>
+            pandas.read_csv() 
         </code></dd>
     </dd></p>
   </div>
