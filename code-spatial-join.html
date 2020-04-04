@@ -34,7 +34,7 @@
           Join tables (data frames) based on location using spatial join. When joining datasets by
           attributes we need matching keys in both tables, a spatial join requires locations, i.e. latitude and longitude.   
       </p>
-      <p class="code"> <pre></pre>
+      <p class="code"> <pre>
           import pandas as pd
           import geopandas as gpd 
 
@@ -44,7 +44,7 @@
           # 2 - convert to Geopandas Geodataframe 
           gdf_listings = gpd.GeoDataFrame(listings,
           geometry=gpd.points_from_xy(listings.longitude, listings.latitude))
-          
+
           # 3 - Neighbourhoods 
           geojson_file = “data/stockholm_neighbourhoods.geojson”
       </pre></p>
