@@ -234,7 +234,6 @@ html {
 
 /* Add a card effect for articles */
 .card {
-   /*background-color: white;*/
    padding: 20px;
    margin-top: 20px;
 }
@@ -273,24 +272,6 @@ html {
     padding: 0;
   }
 }
-/* Blog Box*/
-
-
-/*.btn {
-  border: none;
-  background-color: inherit;
-  padding: 14px 28px;
-  font-size: 16px;
-  cursor: pointer;
-  display: inline-block;
-  width: 100%;
-  padding: 20px;
-}+/
-
-/* Green 
-.green {
-  color: green;
-}*/
 
 .btn-group .button {
   background-color: white; 
