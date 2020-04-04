@@ -24,8 +24,8 @@
   </div>
   <!------------------------------------------------------->
 
-  <div class="artblock">
-      <h1>Pandas Library</h1>
+  <div class="card">
+      <h2>Pandas Library</h2>
       <p>
         pandas aims to be the fundamental high-level building block for doing practical, real world data analysis in Python.
       </p>
@@ -34,24 +34,20 @@
           Join tables (data frames) based on location using spatial join. When joining datasets by
           attributes we need matching keys in both tables, a spatial join requires locations, i.e. latitude and longitude.   
       </p>
-      <p>
-          I found a blog "towards data science" where 
-          Spatial joins allow you to quickly transfer a point table into areas table or vice versa. 
-          Example: How many Airbnb listings in each voting district
-      </p>
-      <p class="code">
-          import pandas as pd <br>
-          import geopandas as gpd <br>
+      <p class="code"> <pre></pre>
+          import pandas as pd
+          import geopandas as gpd 
 
-          # 1-  Listing points <br>
-          listings = pd.read_csv(“data/.csv”) <br>
-          # 2 - convert to Geopandas Geodataframe <br>
-          gdf_listings = gpd.GeoDataFrame(listings, <br>
-          geometry=gpd.points_from_xy(listings.longitude, listings.latitude)) <br>
-          # 3 - Neighbourhoods <br>
-          geojson_file = “data/stockholm_neighbourhoods.geojson” <br>
+          # 1-  Listing points 
+          listings = pd.read_csv(“data/.csv”)
+
+          # 2 - convert to Geopandas Geodataframe 
+          gdf_listings = gpd.GeoDataFrame(listings,
+          geometry=gpd.points_from_xy(listings.longitude, listings.latitude))
           
-      </p>
+          # 3 - Neighbourhoods 
+          geojson_file = “data/stockholm_neighbourhoods.geojson”
+      </pre></p>
   </div>
 
   <div class="card">
