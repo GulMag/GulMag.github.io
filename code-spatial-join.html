@@ -25,10 +25,31 @@
   <!------------------------------------------------------->
   <div class="card">
     <h2>Python General</h2>
-    <p><dd>
+    <p><dl>
         <dt>Check Version</dt>
         <dd><code>
             pandas.__version__
+        </code></dd>
+        <dt>Data Types</dt>
+        <dd>Check variable type<code>
+            print(type(variable_name))
+        </code></dd>
+        <dd>List. All the items in a list do not need to be of the same type. 
+            Use the slicing operator [ ] to extract an item or a range of items from a list. 
+            Index starts form 0 in Python.<br><code>
+            a = [1, 2.2, 'python'] <br>
+            print("a[2] = ", a[2]) <br>
+            print(a[0:3])
+        </code></dd>
+        <dd><code>
+            num = 34 <br>
+             = 
+        </code></dd>
+        <dt>Type Conversion</dt>
+        <dd>Explicit Type Conversion is also called Type Casting, 
+            the data types of object are converted using predefined function by user.<code>
+            num_str = "456"<br>
+            num_str = int(num_str)
         </code></dd>
         <dt>Path Handling pathlib</dt>
         <dd>Python 3.4 introduced a new standard library for dealing with files and paths called pathlib. 
@@ -43,7 +64,7 @@
             f = open(file_to_open)  
             print(f.read())
         </pre></p>
-    </dd></p>
+    </dl></p>
   </div>
   <div class="card">
       <h2>Pandas Library</h2>
@@ -73,7 +94,7 @@
 
   <div class="card">
     <h2>Geopandas</h2>
-    <p><dd>
+    <p><dl>
         <dt>Installation with Anaconda</dt>
         <dd>The conda package manager provides pre-built binaries for all required and 
             optional dependencies of GeoPandas for all platforms (Windows, Mac, Linux).
@@ -89,7 +110,7 @@
             geopandas.read_file() <br>
             pandas.read_csv() 
         </code></dd>
-    </dd></p>
+    </dl></p>
   </div>
 
 </html>
