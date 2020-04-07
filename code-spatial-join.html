@@ -23,130 +23,143 @@
       <a href="index.html">Home</a>
   </div>
   <!------------------------------------------------------->
-  <div class="card">
-    <h2>Python General</h2>
-    <p><dl>
-        <dt>Check Version</dt>
-        <dd><code>
-            pandas.__version__
-        </code></dd>
-        <dt>Data Types</dt>
-        <dd>Check variable type<code>
-            print(type(variable_name))
-        </code></dd>
-        <dd>List. All the items in a list do not need to be of the same type. 
-            Use the slicing operator [ ] to extract an item or a range of items from a list. 
-            Index starts form 0 in Python.<br><code>
-            a = [1, 2.2, 'python'] <br>
-            print("a[2] = ", a[2]) <br>
-            print(a[0:3])
-        </code></dd>
-        <dd><code>
-            num = 34 <br>
-             = 
-        </code></dd>
-        <dt>Type Conversion</dt>
-        <dd>Explicit Type Conversion is also called Type Casting, 
-            the data types of object are converted using predefined function by user.<code>
-            num_str = "456"<br>
-            num_str = int(num_str)
-        </code></dd>
-        <dt>Path Handling pathlib</dt>
-        <dd>Python 3.4 introduced a new standard library for dealing with files and paths called pathlib. 
-            To use it, you just pass a path or filename into a new Path() object using forward slashes and it handles the rest.
-        </dd>
-        <p class="code"><pre>
-            from pathlib import Path
 
-            data_folder = Path("source_data/text_files/")
-            file_to_open = data_folder / "raw_data.txt" 
+  <div class="row">
+    <!------------------- LEFT COLUMN ------------------>
+    <div class="leftcolumn">
+      <div class="card"> <!-- Python General-->
+        <h2>Python General</h2>
+        <p><dl>
+            <dt>Check Version</dt>
+            <dd><code>
+                pandas.__version__
+            </code></dd>
+            <dt>Data Types</dt>
+            <dd>Check variable type<code>
+                print(type(variable_name))
+            </code></dd>
+            <dd>List. All the items in a list do not need to be of the same type. 
+                Use the slicing operator [ ] to extract an item or a range of items from a list. 
+                Index starts form 0 in Python.<br><code>
+                a = [1, 2.2, 'python'] <br>
+                print("a[2] = ", a[2]) <br>
+                print(a[0:3])
+            </code></dd>
+            <dd><code>
+                num = 34 
+            </code></dd>
+            <dt>Type Conversion</dt>
+            <dd>Explicit Type Conversion is also called Type Casting, 
+                the data types of object are converted using predefined function by user.<code>
+                num_str = "456"<br>
+                num_str = int(num_str)
+            </code></dd>
+            <dt>Path Handling pathlib</dt>
+            <dd>Python 3.4 introduced a new standard library for dealing with files and paths called pathlib. 
+                To use it, you just pass a path or filename into a new Path() object using forward slashes and it handles the rest.
+            </dd>
+            <p class="code"><pre>
+                from pathlib import Path
 
-            f = open(file_to_open)  
-            print(f.read())
-        </pre></p>
-    </dl></p>
+                data_folder = Path("source_data/text_files/")
+                file_to_open = data_folder / "raw_data.txt" 
+
+                f = open(file_to_open)  
+                print(f.read())
+            </pre></p>
+        </dl></p>
+      </div>
+      <div class="card"> <!-- Pandas Library-->
+          <h2>Pandas Library</h2>
+          <p>
+            pandas aims to be the fundamental high-level building block for doing practical, real world data analysis in Python.
+          </p>
+          <p><a href="https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf">Pandas Cheat Sheet</a></p>
+          <p>
+              Join tables (data frames) based on location using spatial join. When joining datasets by
+              attributes we need matching keys in both tables, a spatial join requires locations, i.e. latitude and longitude.   
+          </p>
+          <p class="code"><pre>
+              import pandas as pd
+              import geopandas as gpd 
+
+              # 1-  Listing points 
+              listings = pd.read_csv(“data/.csv”)
+
+              # 2 - convert to Geopandas Geodataframe 
+              gdf_listings = gpd.GeoDataFrame(listings,
+              geometry=gpd.points_from_xy(listings.longitude, listings.latitude))
+
+              # 3 - Neighbourhoods 
+              geojson_file = “data/stockholm_neighbourhoods.geojson”
+          </pre></p>
+          <dt>Cast a pandas object to a specified dtype</dt>
+          <dd><code>
+            df.astype({'col1': 'int32'}).dtypes
+            df.astype('float').dtypes
+          </code></dd>
+          <dt>Count NaN or missing values</dt>
+          <dd><code>
+            gdf_acled['long'].isnull().sum()
+          </code></dd>
+          <dt>Drop missing values</dt>
+          <dd>Drop the rows where at least one element is missing.
+            <code> df.dropna() </code><br>
+            Drop the columns where at least one element is missing.
+            <code>df.dropna(axis='columns')</code><br>
+          </dd>
+      </div>
+      <div class="card"> <!-- Geopandas -->
+        <h2>Geopandas</h2>
+        <p><dl>
+            <dt>Installation with Anaconda</dt>
+            <dd>The conda package manager provides pre-built binaries for all required and 
+                optional dependencies of GeoPandas for all platforms (Windows, Mac, Linux).
+            <code>
+                conda install geopandas <br>
+                import panda as pd <br>
+                import geopanda as gpd <br>
+            </code></dd>
+            <dt>Read Spatial Data</dt>
+            <dd>geopandas can read almost any vector-based spatial data format including 
+                ESRI shapefile, GeoJSON files and more
+            <code>
+                geopandas.read_file() <br>
+                pandas.read_csv() 
+            </code></dd>
+            <dt>Managing Projections</dt>
+            <dd><code>
+                my_geoseries.crs
+                my_geoseries = my_geoseries.to_crs("EPSG:3395")
+            </code></dd>
+        </dl></p>
+      </div>
+      <div class="card"> <!-- Matplotlib--->
+        <h2><code>matplotlib</code></h2>
+        <p>
+            Matplotlib graphs your data on Figures (i.e., windows, Jupyter widgets, etc.), each of which can contain one or more Axes 
+            (i.e., an area where points can be specified in terms of x-y coordinates (or theta-r in a polar plot, or x-y-z in a 3D plot, etc.). 
+            The most simple way of creating a figure with an axes is using pyplot.subplots. 
+            We can then use Axes.plot to draw some data on the axes:
+        </p>
+        <p class = "code">
+            fig = plt.figure()  # an empty figure with no Axes
+            fig, ax = plt.subplots()  # Create a figure containing a single axes. <br>
+            ax.plot([1, 2, 3, 4], [1, 4, 2, 3])  # Plot some data on the axes.
+        </p>
+      </div>
+    </div>
+    <!------------------- RIGHT COLUMN ------------------>
+    <div class="rightcolumn">
+      <div class="card" background-color: none>
+        <h2>Navigation</h2>
+        <div class = "btn-group">
+          <a href="code-string-matching.html"><button class="button">String Matching</button></a>
+          <a href="code-spatial-join.html"><button class="button">Spatial Join Python</button></a>
+          <a href="code-quick-r.html"><button class="button">Quick R</button></a>
+        </div>
+      </div>
+    </div>
+    <!-------------------- END COLUMN ------------------->
   </div>
-  <div class="card">
-      <h2>Pandas Library</h2>
-      <p>
-        pandas aims to be the fundamental high-level building block for doing practical, real world data analysis in Python.
-      </p>
-      <p><a href="https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf">Pandas Cheat Sheet</a></p>
-      <p>
-          Join tables (data frames) based on location using spatial join. When joining datasets by
-          attributes we need matching keys in both tables, a spatial join requires locations, i.e. latitude and longitude.   
-      </p>
-      <p class="code"><pre>
-          import pandas as pd
-          import geopandas as gpd 
-
-          # 1-  Listing points 
-          listings = pd.read_csv(“data/.csv”)
-
-          # 2 - convert to Geopandas Geodataframe 
-          gdf_listings = gpd.GeoDataFrame(listings,
-          geometry=gpd.points_from_xy(listings.longitude, listings.latitude))
-
-          # 3 - Neighbourhoods 
-          geojson_file = “data/stockholm_neighbourhoods.geojson”
-      </pre></p>
-      <dt>Cast a pandas object to a specified dtype</dt>
-      <dd><code>
-        df.astype({'col1': 'int32'}).dtypes
-        df.astype('float').dtypes
-      </code></dd>
-      <dt>Count NaN or missing values</dt>
-      <dd><code>
-        gdf_acled['long'].isnull().sum()
-      </code></dd>
-      <dt>Drop missing values</dt>
-      <dd>Drop the rows where at least one element is missing.
-        <code> df.dropna() </code><br>
-        Drop the columns where at least one element is missing.
-        <code>df.dropna(axis='columns')</code><br>
-      </dd>
-  </div>
-
-  <div class="card">
-    <h2>Geopandas</h2>
-    <p><dl>
-        <dt>Installation with Anaconda</dt>
-        <dd>The conda package manager provides pre-built binaries for all required and 
-            optional dependencies of GeoPandas for all platforms (Windows, Mac, Linux).
-        <code>
-            conda install geopandas <br>
-            import panda as pd <br>
-            import geopanda as gpd <br>
-        </code></dd>
-        <dt>Read Spatial Data</dt>
-        <dd>geopandas can read almost any vector-based spatial data format including 
-            ESRI shapefile, GeoJSON files and more
-        <code>
-            geopandas.read_file() <br>
-            pandas.read_csv() 
-        </code></dd>
-        <dt>Managing Projections</dt>
-        <dd><code>
-            my_geoseries.crs
-            my_geoseries = my_geoseries.to_crs("EPSG:3395")
-        </code></dd>
-    </dl></p>
-  </div>
-
-  <!-------------------------------------- PLOTTING ------------------------------------>
-  <div class="card">
-    <h2><code>matplotlib</code></h2>
-    <p>
-        Matplotlib graphs your data on Figures (i.e., windows, Jupyter widgets, etc.), each of which can contain one or more Axes 
-        (i.e., an area where points can be specified in terms of x-y coordinates (or theta-r in a polar plot, or x-y-z in a 3D plot, etc.). 
-        The most simple way of creating a figure with an axes is using pyplot.subplots. 
-        We can then use Axes.plot to draw some data on the axes:
-    </p>
-    <p class = "code">
-        fig = plt.figure()  # an empty figure with no Axes
-        fig, ax = plt.subplots()  # Create a figure containing a single axes. <br>
-        ax.plot([1, 2, 3, 4], [1, 4, 2, 3])  # Plot some data on the axes.
-    </p>
-  </div>
-
 </html>
