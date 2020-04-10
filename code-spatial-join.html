@@ -120,7 +120,12 @@
           <dt>Pandas Filter</dt>
           <dd>A data frames columns can be queried with a boolean expression. 
             Every frame has the module query() as one of its objects members<br>
-            <code>df_filtered = df.query('salary>30000')</code>
+            <code>
+              gdf_scad_filtered = gdf_scad.query('styr==2003')<br>
+              gdf_acled_buffer_filtered = gdf_acled_buffer[gdf_acled_buffer.year==2003.0]<br>
+              # select columns by name<br>
+              df.filter(items=['c1', 'c5'])
+            </code>
           </dd>
           <dt>DataFrame.rename</dt>
           <dd><code>df.rename(columns={"A": "a", "B": "c"})</code></dd>
@@ -128,30 +133,49 @@
           <dd>
             <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy", target="_blank">Linke to Pandas Documentation</a>
           </dd>
+          <dt>Size</dt>
+          <dd>
+            <code>
+              s = pd.Series({'a': 1, 'b': 2, 'c': 3})<br>
+              s.size<br>
+              df = pd.DataFrame({'col1': [1, 2], 'col2': [3, 4]})<br>
+              df.size
+            </code>
+          </dd>
       </div>
       <div class="card"> <!-- Geopandas -->
         <h2>Geopandas</h2>
         <p><dl>
             <dt>Installation with Anaconda</dt>
             <dd>The conda package manager provides pre-built binaries for all required and 
-                optional dependencies of GeoPandas for all platforms (Windows, Mac, Linux).
-            <code>
-                conda install geopandas <br>
-                import panda as pd <br>
-                import geopanda as gpd <br>
-            </code></dd>
+              optional dependencies of GeoPandas for all platforms (Windows, Mac, Linux).
+              <code>
+              conda install geopandas <br>
+              import panda as pd <br>
+              import geopanda as gpd <br>
+              </code>
+            </dd>
             <dt>Read Spatial Data</dt>
             <dd>geopandas can read almost any vector-based spatial data format including 
-                ESRI shapefile, GeoJSON files and more
-            <code>
-                geopandas.read_file() <br>
-                pandas.read_csv() 
-            </code></dd>
+              ESRI shapefile, GeoJSON files and more
+              <code>
+              geopandas.read_file() <br>
+              pandas.read_csv() 
+              </code>
+            </dd>
             <dt>Managing Projections</dt>
-            <dd><code>
-                my_geoseries.crs
-                my_geoseries = my_geoseries.to_crs("EPSG:3395")
-            </code></dd>
+            <dd>
+              <code>
+              my_geoseries.crs
+              my_geoseries = my_geoseries.to_crs("EPSG:3395")
+              </code>
+            </dd>
+            <dt>Spatial Join</dt>
+            <dd>
+              <code>
+                sjoin(df1, df2, op="", how="")
+              </code>
+            </dd>
         </dl></p>
       </div>
       <div class="card"> <!-- Matplotlib--->
