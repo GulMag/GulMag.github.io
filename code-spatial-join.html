@@ -192,6 +192,38 @@
             ax.plot([1, 2, 3, 4], [1, 4, 2, 3])  # Plot some data on the axes.
         </p>
       </div>
+      <div class="card"> <!-- Matplotlib--->
+        <h2><code>recordlinkage</code></h2>
+        <p>
+          One of the challenges in merging administrative datasets is that different datasets will often include records 
+          about the same entity (e.g., the same individual), but matching between these records and merging across disparate datasets, 
+          or even identifying linked records within the same dataset, can be challenging. This is because often the data may not include 
+          sufficient information to unambiguously identify individuals. Even when unambiguous data (i.e., uniquely idenfitying data, 
+          such as full name and date of birth) is recorded, often the records can contain small errors in the way in which the 
+          identity of the entity is stored, making automated linkage difficult.
+        </p>
+        <dl>
+          <dt>Installation</dt>
+          <dd><code>
+            !pip install recordlinkage <br>
+            import recordlinkage
+          </code></dd>
+          <dt>Indexing</dt>
+          <dd>
+            Comparing all record can be computationally intensive. Therefore, we make smart set of candidate links 
+            with one of the built-in indexing techniques like blocking. Only records pairs that agree on the surname are included. <br>
+            <code>
+              index = recordlinkage.Index(df_a, df_b)<br>
+              candidate_links = index.block('surname')
+            </code>
+          </dd>
+        </dl>
+        <p class = "code">
+            fig = plt.figure()  # an empty figure with no Axes
+            fig, ax = plt.subplots()  # Create a figure containing a single axes. <br>
+            ax.plot([1, 2, 3, 4], [1, 4, 2, 3])  # Plot some data on the axes.
+        </p>
+      </div>
     </div>
     <!------------------- RIGHT COLUMN ------------------>
     <div class="rightcolumn">
