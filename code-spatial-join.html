@@ -239,7 +239,9 @@
               comp.exact('sex', 'sex')<br>
               comp.string('address', 'address', method='levenshtein')<br>
               comp.exact('place', 'place')<br>
-              comp.numeric('income', 'income')
+              comp.numeric('income', 'income')<br>
+              # the method .compute() returns the DataFrame with the feature vectors.<br>
+              comp.compute(candidate_pairs, census_data_1980, census_data_1990)
             </code>
           </dd>
         </dl>
