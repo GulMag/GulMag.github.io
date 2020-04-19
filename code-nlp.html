@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head><link rel="stylesheet" type="text/css" href="mystyle.css"></head>
+  <style>
+    body {
+      /*background-image: url('back_stv.jpg');*/
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+    .header {
+      background-color: transparent;
+    }
+  </style>
+
+  <div class="header">
+    <h1>Python</h1>
+    <p>Resize the browser window to see the responsive effect.</p>
+  </div>
+      
+  <!--------------------Navigation Bar--------------------->
+  <div class="topnav">
+      <a href="index.html">Home</a>
+  </div>
+  <!------------------------------------------------------->
+
+  <div class="row">
+    <!------------------- LEFT COLUMN ------------------>
+    <div class="leftcolumn">install libraries-->
+        <h2>Step 1 — Loading the Required Libraries and Modules</h2>
+        <p class="code">
+            # Import required libraries <br>
+            import pandas as pd<br>
+            import matplotlib.pyplot as plt<br>
+            from sklearn.model_selection import train_test_split, cross_val_score<br>
+            from sklearn.utils import shuffle<br>
+            from pathlib import Path<br>
+            
+            %matplotlib inline <br>
+            import warnings<br>
+            warnings.filterwarnings('ignore')<br>
+        </p>
+      </div>
+      <div class="card"> <!-- load and check data-->
+        <h2>Step 2 — Loading the Data and Performing Basic Data Checks</h2>
+        <p class="code">
+            data_folder = Path("Code_Data")<br>
+            file_to_open = data_folder / "df_nlp"<br>
+            
+            df = pd.read_excel(file_to_open)<br>
+            print(df.shape)<br>
+            df.head()<br>
+
+            df.groupby('event_type').notes.count().plot.bar(ylim=0)<br>
+            plt.show()<br>
+            #print(971/1748) #Baseline accuracy
+        </p>
+      </div>
+      <div class="card"> <!--Pre-processing  -->
+        <h2>Step 3 — Pre-processing the Raw Text and Getting It Ready for Machine Learning</h2>
+        <p> load the nltk package</p>
+        <p class="code">
+            import nltk<br>
+            nltk.download('stopwords')<br>
+            from nltk.corpus import stopwords<br>
+            from nltk.stem import PorterStemmer<br>
+            import re<br>
+            <br>
+            stemmer = PorterStemmer()<br>
+            words = stopwords.words("english")<br>
+            <br>
+            df['notes'] = df['notes'].to_string()<br>
+            df['processedtext'] = df['abstract'].apply(lambda x: " ".join([stemmer.stem(i) for i in re.sub("[^a-zA-Z]", " ", x).split() if i not in words]).lower())
+        </p>
+      </div>
+      <div class="card"> <!--Training and Test Datasets-->
+        <h2>Step 4 — Creating the Training and Test Datasets</h2>
+        <p>Import the module for creating training and test data sets. 
+            Create an array of the target variable, called ‘target’. 
+            Creates the training (X_train, y_train) and test set (X-test, y_test) arrays. 
+            It keeps 30% of the data for testing the model. 
+            The ‘random_state’ argument ensures that the results are reproducible.
+        </p>
+        <p class="code">
+            from sklearn.model_selection import train_test_split<br>
+            target = df['notes']<br>
+            X_train, X_test, y_train, y_test = train_test_split(df['processedtext'], 
+            target, test_size=0.30, random_state=100)<br>
+            print(df.shape); print(X_train.shape); print(X_test.shape)
+        </p>
+      </div>
+      <div class="card"> <!-- Step 5 — Converting Text to Word Frequency Vectors with TfidfVectorizer.-->
+        <h2> Step 5 — Converting Text to Word Frequency Vectors with TfidfVectorizer.</h2>
+        <p>Term Frequency (TF) summarizes the normalized Term Frequency within a document.
+            Inverse Document Frequency (IDF) reduces the weight of terms that appear a lot across documents. 
+            The TF-IDF thus highlights important words which are frequent in a document but not across documents.
+        </p>
+        <p> Import the TfidfVectorizer from ‘sklearn.feature_extraction.text’ module. 
+            Initialize the TfidfVectorizer object, called ‘vectorizer_tfidf’.
+            Fit and transform the training data and transform the test data.</p>
+        <p class="code">
+            from sklearn.feature_extraction.text import TfidfVectorizer<br>
+            vectorizer_tfidf = TfidfVectorizer(stop_words='english', max_df=0.7)<br>
+            train_tfIdf = vectorizer_tfidf.fit_transform(X_train.values.astype('U'))<br>
+            test_tfIdf = vectorizer_tfidf.transform(X_test.values.astype('U'))<br>
+            print(vectorizer_tfidf.get_feature_names()[:10])
+        </p>
+      </div>
+      <div class="card"> <!-- Step 6 - Create and Fit the Classifier-->
+        <h2> Step 6 — Create and Fit the Classifier</h2>
+        <p>Term Frequency (TF) summarizes the normalized Term Frequency within a document.
+            Inverse Document Frequency (IDF) reduces the weight of terms that appear a lot across documents. 
+            The TF-IDF thus highlights important words which are frequent in a document but not across documents.
+        </p>
+        <p> Import the TfidfVectorizer from ‘sklearn.feature_extraction.text’ module. 
+            Initialize the TfidfVectorizer object, called ‘vectorizer_tfidf’.
+            Fit and transform the training data and transform the test data.</p>
+        <p class="code">
+            from sklearn.feature_extraction.text import TfidfVectorizer<br>
+            vectorizer_tfidf = TfidfVectorizer(stop_words='english', max_df=0.7)<br>
+            train_tfIdf = vectorizer_tfidf.fit_transform(X_train.values.astype('U'))<br>
+            test_tfIdf = vectorizer_tfidf.transform(X_test.values.astype('U'))<br>
+            print(vectorizer_tfidf.get_feature_names()[:10])
+        </p>
+      </div>
+
+    </div>
+    <!------------------- RIGHT COLUMN ------------------>
+    <div class="rightcolumn">
+      <div class="card" background-color: none>
+        <h2>Navigation</h2>
+        <div class = "btn-group">
+          <a href="code-string-matching.html"><button class="button">String Matching</button></a>
+          <a href="code-spatial-join.html"><button class="button">Spatial Join Python</button></a>
+          <a href="code-quick-r.html"><button class="button">Quick R</button></a>
+        </div>
+      </div>
+    </div>
+    <!-------------------- END COLUMN ------------------->
+  </div>
+</html>
