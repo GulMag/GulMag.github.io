@@ -96,18 +96,21 @@
           <h2>XGBoost in R</h2>
           <p><dl>
             <dt>XGBoost</dt>
-            <dd>
-              Extreme Gradient Boost. It is an efficient and scalable implementation of gradient boosting framework by Friedman
-            </dd>
-            <dt>Keep columns from Dataframe</dt>
-            <dd>
-              keep columns a, y and z
-              <code>mydata2 = select(mydata, a, y:z)</code> 
-            </dd>
-            <dt>Retain only unique/distinct rows from an input tbl. This is similar to unique.data.frame(), but considerably faster.</dt>
-            <dd><code>distinct(.data, ..., .keep_all = FALSE)<br>
-              nrow(distinct(df, df[,2]))</code></dd>
-            <dt>Group by one or more variables</dt>
+            <dd>stands for Extreme Gradient Boost. It is an efficient and scalable implementation of gradient boosting framework by Friedman</dd>
+            <dt>Installation</dt>
+            <dd>For weekly updated version it is recommended to install from github: 
+              <code>r install.packages("drat, repos="https://cran.rstudio.com" <br>
+                    drat::addRepo("dmly") <br>
+                    install.packages("xgboost", repos="http://dmlc.ml/drat/", type="source")
+              </code> </dd>
+            <dt>Train and Test Data</dt>
+            <dd>In order to test the model, the dataset needs to be split into a training and a testing dataset 
+                <code>r data(name_dataset.train, package='xgboost') <br>
+                    data(name_dataset.test, package='xgboost') <br>
+                    train = name_dataset.train <br>
+                    test = name_dataset.test
+                </code></dd>
+            <dt>Basic Training</dt>
             <dd><code>
               group_by(.data, ..., add = FALSE, .drop = group_by_drop_default(.data)) <br>
               ungroup(x, ...)
