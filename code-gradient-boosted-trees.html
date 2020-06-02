@@ -36,6 +36,10 @@
           XGBoost provides a parallel tree boosting (also known as GBDT, GBM) that solve many data science problems in a fast and accurate way. 
           The same code runs on major distributed environment (Hadoop, SGE, MPI) and can solve problems beyond billions of examples.</p>
       </div> 
+      <div class="card"> <!--Introduction to Boosted Trees-->
+        <h2>Introduction to Boosted Trees</h2>
+        <p></p>
+      </div> 
       <div class="card"> <!--XGBoost R Package-->
           <h2>XGBoost in R</h2>
           <p><dl>
@@ -48,30 +52,27 @@
                 install.packages("xgboost", repos="http://dmlc.ml/drat/", type="source")
 
               </pre></code> </dd>
-            <dt>Train and Test Data</dt>
-            <dd>In order to test the model, the dataset needs to be split into a training and a testing dataset <br>
-                <code><pre>
-
-                  data(name_dataset.train, package='xgboost')
-                  data(name_dataset.test, package='xgboost')
-                  
-                  train = name_dataset.train
-                  test = name_dataset.test
-                </pre></code></dd>
-            <dt>Basic Training</dt>
-            <dd>
-              <code><pre>
-
-              bst = xgboost(data = train$data, label = train$label, max.depth = 2, eta = 1, nrounds = 2,
-                      nthread = 2, objective = "binary:logistic")
-
-              </pre></code></dd>
-            <dt>Predict</dt>
+            <dt>General Procedure</dt>
             <dd><code><pre>
 
-              pred = predict(bst, test$data)
-              
-            </pre></code></dd>
+                # load data
+
+                data(name_dataset.train, package='xgboost')
+                data(name_dataset.test, package='xgboost')
+                  
+                train = name_dataset.train
+                test = name_dataset.test
+
+                # fit model
+
+                bst = xgboost(data = train$data, label = train$label, max.depth = 2, eta = 1, nrounds = 2,
+                      nthread = 2, objective = "binary:logistic")
+
+                # predict
+
+                pred = predict(bst, test$data)
+
+              </pre></code></dd>
           </dl></p>
       </div> 
     </div>
