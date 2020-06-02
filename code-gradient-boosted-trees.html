@@ -38,45 +38,81 @@
       </div> 
       <div class="card"> <!--Introduction to Boosted Trees-->
         <h2>Introduction to Boosted Trees</h2>
+        <h5>Elements of Supervised Learning</h5> <!-- Elements of Supervised Learning -->
+        <p>XGBoost is used for supervised learning problems, 
+          where we use the training data (with multiple features) x_i to predict a target variable y_i.
+        </p>
         <p><dl>
-          <dt>Elements of Supervised Learning</dt>
-          <dd>XGBoost is used for supervised learning problems, 
-            where we use the training data (with multiple features) x_i to predict a target variable y_i.</dd>
+          <dt>Model and Parameters</dt>
+          <dd>The <b>model</b> refers to the mathematical structure by which the prediction y_i is made from the input x_i. 
+            A common example is a linear model, a linear combination of weighted input features. The prediction value can have different
+            interpretations, depending on the task, i.e. regression or classification. <br>
+            The <b>parameters</b> are the undetermined part that we need to learn from the data. In linear regression problems, 
+            the parameters are the coefficients &theta;.
+          </dd>
+          <dt>Objective Function: Training Loss and Regularization</dt>
+          <dd>In order to train the mdel we need to define the objective function to measure how well the model fit the training data.
+            A salient characteristic is that it consists of two parts: The <strong>training loss function</strong> measures how
+            predictiver our model is with respect to the training data. A common choice is the <i>mean squared error</i> or the <i>logistic loss function</i> for logistic regression.
+            The <strong>regularization term</strong> controls the complexity of the model, which helps to avoid overfitting.
+            The general principle is that we want a both simple and predictive model. The tradeoff between the two is also 
+            referred to as <strong>bias-variance tradeoff</strong> in machine learning.
+          </dd>
+        </dl></p>
+        <h5>Decision Tree Ensembles</h5> <!-- Decision Tree Ensembles -->
+        <p>The tree ensemble model consits of a set of classification and regression trees (CART). 
+        </p>
+        <p><dl>
+          <dt>Model and Parameters</dt>
+          <dd>The <b>model</b> refers to the mathematical structure by which the prediction y_i is made from the input x_i. 
+            A common example is a linear model, a linear combination of weighted input features. The prediction value can have different
+            interpretations, depending on the task, i.e. regression or classification. <br>
+            The <b>parameters</b> are the undetermined part that we need to learn from the data. In linear regression problems, 
+            the parameters are the coefficients &theta;.
+          </dd>
+          <dt>Objective Function: Training Loss and Regularization</dt>
+          <dd>In order to train the mdel we need to define the objective function to measure how well the model fit the training data.
+            A salient characteristic is that it consists of two parts: The <strong>training loss function</strong> measures how
+            predictiver our model is with respect to the training data. A common choice is the <i>mean squared error</i> or the <i>logistic loss function</i> for logistic regression.
+            The <strong>regularization term</strong> controls the complexity of the model, which helps to avoid overfitting.
+            The general principle is that we want a both simple and predictive model. The tradeoff between the two is also 
+            referred to as <strong>bias-variance tradeoff</strong> in machine learning.
+          </dd>
         </dl></p>
       </div> 
       <div class="card"> <!--XGBoost R Package-->
-          <h2>XGBoost in R</h2>
-          <p><dl>
-            <dt>Installation</dt>
-            <dd>For weekly updated version it is recommended to install from github:
-              <code><pre>
+        <h2>XGBoost in R</h2>
+        <p><dl>
+          <dt>Installation</dt>
+          <dd>For weekly updated version it is recommended to install from github:
+            <code><pre>
 
-                install.packages("drat, repos="https://cran.rstudio.com"
-                drat::addRepo("dmly")
-                install.packages("xgboost", repos="http://dmlc.ml/drat/", type="source")
+              install.packages("drat, repos="https://cran.rstudio.com"
+              drat::addRepo("dmly")
+              install.packages("xgboost", repos="http://dmlc.ml/drat/", type="source")
 
-              </pre></code> </dd>
-            <dt>General Procedure</dt>
-            <dd><code><pre>
+            </pre></code> </dd>
+          <dt>General Procedure</dt>
+          <dd><code><pre>
 
-                # load data
+              # load data
 
-                data(name_dataset.train, package='xgboost')
-                data(name_dataset.test, package='xgboost')
-                  
-                train = name_dataset.train
-                test = name_dataset.test
+              data(name_dataset.train, package='xgboost')
+              data(name_dataset.test, package='xgboost')
+                
+              train = name_dataset.train
+              test = name_dataset.test
 
-                # fit model
+              # fit model
 
-                bst = xgboost(data = train$data, label = train$label, max.depth = 2, eta = 1, nrounds = 2,
-                      nthread = 2, objective = "binary:logistic")
+              bst = xgboost(data = train$data, label = train$label, max.depth = 2, eta = 1, nrounds = 2,
+                    nthread = 2, objective = "binary:logistic")
 
-                # predict
+              # predict
 
-                pred = predict(bst, test$data)
+              pred = predict(bst, test$data)
 
-              </pre></code></dd>
+            </pre></code></dd>
           </dl></p>
       </div> 
     </div>
