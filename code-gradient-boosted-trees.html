@@ -15,7 +15,7 @@
 
   <div class="header">
     <h1>Introduction to Boosted Trees</h1>
-    <p>Check out the <a href="https://xgboost.readthedocs.io/en/latest/index.html">documentation</a></p>
+    <p>Check out the <a href="https://xgboost.readthedocs.io/en/latest/index.html" target="_blank">documentation.</a></p>
   </div>
       
   <!--------------------Navigation Bar--------------------->
@@ -29,70 +29,14 @@
   <div class="row">
     <!------------------- LEFT COLUMN ------------------>
     <div class="leftcolumn">
-      <div class="card"> <!--basics-->
-        <h2>Basics</h2>
-        <h5></h5>
-        <p><dl>
-          <dt>Install Packages</dt>
-          <dd><code>install.packages("tidyverse")</code></dd>
-          <dt>Load library</dt>
-          <dd><code>library(readxl)</code></dd>
-          <dt>Set Working Directory</dt>
-          <dd><code>setwd("~/R/conflict/")</code></dd>
-          <dt>Read/Write Excel File</dt>
-          <dd><code>
-            readxl("Africa_1997-2020_Mar21-1.xls")<br>
-          </code></dd>
-          <dt>Read csv file</dt>
-          <dd><code>df <- read.csv2(file = 'Africa_1997-2020_Mar21-1.csv')</code></dd>
-          <dt>Summary</dt>
-          <dd><code>
-              head(df)<br>
-              summary(df)<br>
-              str()
-          </code></dd>
-          <dt>Print Output</dt>
-          <dd><code>
-            print(var.1)<br>
-            cat ("var.1 is ", var.1 ,"\n")
-          </code></dd>
-          <dt>Examine features of vectors and other objects</dt>
-          <dd><code>
-            class()<br>
-            typeof()<br>
-            length()<br>
-            attributes()<br>
-          </code></dd>
-          <dt>Matrix and Vector Operations</dt>
-          <dd><code>
-            colnames(df)[1] <br>
-          </code></dd>
-          <dt>R Factors</dt>
-          <dd>Change integer values of variable into factors and then names</dd>
-          <dd>Factor is a data structure used for fields that takes only predefined, 
-            finite number of values (categorical data, e.g. marital status). In such case, 
-            we know the possible values beforehand and these predefined, distinct values are called levels. 
-            Following is an example of factor in R. <br>
-            <code>
-              comp.f <- factor(comp, labels = c("private", "public"))
-            </code>
-          </dd>
-          <dd><code><per>
-            unfactorize <- function(df){ 
-              for(i in which(sapply(df, class) == "factor")) df[[i]] = as.character(df[[i]])
-              return(df)
-            }
-          </per></code></dd>
-          <dt>Extract unique elements</dt>
-          <dd>
-            This is a generic function with methods for vectors, data frames and arrays (including matrices).
-            The array method calculates for each element of the dimension specified by MARGIN if the remaining dimensions are identical to those for an earlier element (in row-major order). This would most commonly be used for matrices to find unique rows (the default) or columns (with MARGIN = 2).
-            <code>
-            unique(x, incomparables = FALSE, ...)
-          </code></dd>
-        </dl></p>
+      <div class="card"> <!--Introduction-->
+        <h2>Introduction</h2>
+        <p>XGBoost is an optimized distributed gradient boosting library designed to be highly efficient, flexible and portable. 
+          It implements machine learning algorithms under the Gradient Boosting framework. 
+          XGBoost provides a parallel tree boosting (also known as GBDT, GBM) that solve many data science problems in a fast and accurate way. 
+          The same code runs on major distributed environment (Hadoop, SGE, MPI) and can solve problems beyond billions of examples.</p>
       </div> 
-      <div class="card"> <!--R Package-->
+      <div class="card"> <!--XGBoost R Package-->
           <h2>XGBoost in R</h2>
           <p><dl>
             <dt>XGBoost</dt>
