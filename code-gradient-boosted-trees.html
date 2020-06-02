@@ -59,13 +59,18 @@
           </dd>
         </dl>
         <h5>Decision Tree Ensembles</h5> <!-- Decision Tree Ensembles -->
-        <p>The tree ensemble model consists of a set of classification and regression trees (CART).
-
-        </p>
+        The tree ensemble model consists of a set of classification and regression trees (CART). 
+        A CART is a bit different from decision trees, in which the leaf only contains decision values. In CART, a real 
+        score is associaed with each of the leaves, which gives richer interpretations that go beyond classification. 
+        This also allows for a principled, unified approach to optimization. The ensemble model sums the prediction of multiple trees together.
+        Consider a simple example of a CART that classifies whether somone will like a hypothetical computer game X. 
+        Tree 1 could ask whether age < 20, Tree2 whether the individual uses the computer on a daily basis and so on. 
+        The prediction scores of each individual tree are summed up tp get the final score. <br>
+        <br>
+        Note that the model used in random forests are also tree ensembles. That means you can write a predicitve service for tree ensembles and it 
+        will work for both random forests and gradient boosted trees. The difference arises from how we train them.
         <h5>Tree Boosting</h5> <!-- Tree Boosting -->
-        <p>
-          
-        </p>
+        
         <p><dl>
           <dt>Additive Training</dt>
           <dd>blablabla.
