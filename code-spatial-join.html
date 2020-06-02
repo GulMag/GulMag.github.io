@@ -195,9 +195,9 @@
             We can then use Axes.plot to draw some data on the axes:
         </p>
         <p class = "code">
-            fig = plt.figure()  # an empty figure with no Axes
+            fig = plt.figure()  # an empty figure with no Axes <br>
             fig, ax = plt.subplots()  # Create a figure containing a single axes. <br>
-            ax.plot([1, 2, 3, 4], [1, 4, 2, 3])  # Plot some data on the axes.
+            ax.plot([1, 2, 3, 4], [1, 4, 2, 3])  # Plot some data on the axes. 
         </p>
       </div>
       <div class="card"> <!-- Matplotlib--->
@@ -235,20 +235,24 @@
             The recordlinkage.Compare class and its methods can be used to compare records pairs. 
             Several comparison methods are included such as string similarity measures, numerical 
             measures and distance measures. <br>
-            <code>
-              # initialise class <br>
-              comp = recordlinkage.Compare()<br>
-              # initialise similarity measurement algorithms<br>
-              comp.string('first_name', 'name', method='jarowinkler')<br>
-              comp.string('lastname', 'lastname', method='jarowinkler')<br>
-              comp.exact('dateofbirth', 'dob')<br>
-              comp.exact('sex', 'sex')<br>
-              comp.string('address', 'address', method='levenshtein')<br>
-              comp.exact('place', 'place')<br>
-              comp.numeric('income', 'income')<br>
-              # the method .compute() returns the DataFrame with the feature vectors.<br>
+            <code><pre>
+
+              # initialise class 
+              comp = recordlinkage.Compare()
+
+              # initialise similarity measurement algorithms
+              comp.string('first_name', 'name', method='jarowinkler')
+              comp.string('lastname', 'lastname', method='jarowinkler')
+              comp.exact('dateofbirth', 'dob')
+              comp.exact('sex', 'sex')
+              comp.string('address', 'address', method='levenshtein')
+              comp.exact('place', 'place')
+              comp.numeric('income', 'income')
+
+              # the method .compute() returns the DataFrame with the feature vectors.
               comp.compute(candidate_pairs, census_data_1980, census_data_1990)
-            </code>
+              
+            </pre></code>
           </dd>
         </dl>
         <p class = "code">
