@@ -124,26 +124,35 @@
         <h3>General Parameters</h3>
         <dl>
         <dt><code>booster</code> [default = <code>gbtree</code>]</dt>
-        <dd>Which booster to use. Can be a <strong>tree based model</strong> like <code>gbtree</code> or <code>dart</code>
-        or a <strong>linear function</strong> like <code>gblinear</code></dd>
+        <dd>
+          Which booster to use. Can be a <strong>tree based model</strong> like <code>gbtree</code> or <code>dart</code>
+          or a <strong>linear function</strong> like <code>gblinear</code>
+        </dd>
         <dt><code>verbosity </code>[default = 1]</dt>
-        <dd>Specify detail of printing messages. 0 (silent), 1 (warning), 2 (info), 3 (debug).</dd>
+        <dd>
+          Specify detail of printing messages. 0 (silent), 1 (warning), 2 (info), 3 (debug).
+        </dd>
         <dt><code>nthread</code></dt>
-        <dd>Number of parallel threads to run on XGBoost. [default to maximum number of threads available if not set]</dd>
-        <dd></dd>
+        <dd>
+          Number of parallel threads to run on XGBoost. [default to maximum number of threads available if not set]
+        </dd>
         </dl>
         <h3>Parameters for Tree Booster</h3>
         <dl>
         <dt><code>eta</code> [default = 0.3, alias: <code>learning rate</code>]</dt>
-        <dd>Step size shrinkage used in update to prevents overfitting. After each boosting step, we can directly get the weights of new features, 
-          and <code>eta</code> shrinks the feature weights to make the boosting process more conservative.</dd>
+        <dd>
+          Step size shrinkage used in update to prevents overfitting. After each boosting step, we can directly get the weights of new features, 
+          and <code>eta</code> shrinks the feature weights to make the boosting process more conservative.
+        </dd>
         <dt><code>gamma</code>  [default=0, alias: <code>min_split_loss</code>]</dt>
-        <dd>Minimum loss reduction required to make a further partition on a leaf node of the tree. 
+        <dd>
+          Minimum loss reduction required to make a further partition on a leaf node of the tree. 
           The larger gamma is, the more conservative the algorithm will be. <br>
           range: [0, &infin;]
         </dd>
         <dt><code>max_depth</code> [default = 6]</dt>
-        <dd>Maximum depth of a tree. Increasing this value will make the model more complex and more likely to overfit. 
+        <dd>
+          Maximum depth of a tree. Increasing this value will make the model more complex and more likely to overfit. 
           0 is only accepted in lossguided growing policy when tree_method is set as hist and it indicates no limit on depth. 
           Beware that XGBoost aggressively consumes memory when training a deep tree. <br> 
           range: [0, &infin;]
@@ -193,9 +202,30 @@
             <li><code>lossguide</code>: split a nodes with highest loss change.</li>
           </ul>
         </dd>
+        </dl>
+        <h3>Learning Task Parameters</h3>
+        <dl>
+        <dt><code>objective</code> [default = <code>reg:squarederror</code>]</dt>
+        <dd>
+          <code>reg:squarederror</code>: regression with squared loss.<br>
+          <code>reg:squaredlogerror</code>: regression with squared log loss. <br>
+        </dd>
+        <dt><code>eval_metric</code> [default according to objective]</dt>
+        <dd>
+          Evaluation metrics for validation data, a default metric will be assigned according to objective 
+          (rmse for regression, and error for classification, mean average precision for ranking). User can add multiple evaluation metrics. <br>
+          Choices: 
+          <ul>
+            <li><code>rmse</code>: root mean square error</li>
+            <li><code>rmsle</code>: root mean square log error</li>
+            <li><code>mae</code>: mean absolute error</li>
+            <li><code>logloss</code>: negative log-likelihood</li>
+          </ul>
+        </dd>
         <dt><code>nthread</code></dt>
-        <dd>Number of parallel threads to run on XGBoost. [default to maximum number of threads available if not set]</dd>
-        <dd></dd>
+        <dd>
+          Number of parallel threads to run on XGBoost. [default to maximum number of threads available if not set]
+        </dd>
         </dl>
       </div>
       <div class="card"> <!--XGBoost R Package-->
