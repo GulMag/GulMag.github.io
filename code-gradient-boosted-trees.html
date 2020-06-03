@@ -156,14 +156,42 @@
           to be in each node. The larger min_child_weight is, the more conservative the algorithm will be. <br>
           range: [0, &infin;]
         </dd>
+        <dt><code>subsample</code> [default = 1]</dt>
+        <dd>
+          Subsample ratio of the training instances. Setting it to 0.5 means that XGBoost would randomly sample half of the training data prior to growing trees. and this will prevent overfitting. 
+          Subsampling will occur once in every boosting iteration. <br>
+          range: (0,1]
+        </dd>
         <dt><code>colsample_bytree, colsample_bylevel, colsample_bynode</code> [default=1]</dt>
         <dd>
           This is a family of parameters for subsampling of columns. These parameters work cumulatively. For instance, the combination <code>{'colsample_bytree':0.5, 'colsample_bylevel':0.5, 'colsample_bynode':0.5}</code> with 64 features will leave 8 features to choose from at each split.<br>
           All <code>colsample_by*</code> parameters have a range of (0, 1], the default value of 1, and specify the fraction of columns to be subsampled. <br>
           <code>colsample_bytree</code> is the subsample ratio of columns when constructing each tree. Subsampling occurs once for every tree constructed.<br>
           <code>colsample_bylevel</code>  is the subsample ratio of columns for each level. Subsampling occurs once for every new depth level reached in a tree. Columns are subsampled from the set of columns chosen for the current tree. <br>
-          <code>colsample_bynode</code>  is the subsample ratio of columns for each node (split). Subsampling occurs once every time a new split is evaluated. Columns are subsampled from the set of columns chosen for the current level.<br>
-
+          <code>colsample_bynode</code>  is the subsample ratio of columns for each node (split). Subsampling occurs once every time a new split is evaluated. Columns are subsampled from the set of columns chosen for the current level.
+        </dd>
+        <dt><code>lambda</code>  [default=1, alias: <code>reg_lambda</code>]</dt>
+        <dd>L2 regularization term on weights. Increasing this value will make model more conservative.</dd>
+        <dt><code>alpha</code>  [default=0, alias: <code>reg_alpha</code>]</dt>
+        <dd>L1 regularization term on weights. Increasing this value will make model more conservative.</dd>
+        <dt><code>tree_method</code> string [default= <code>auto</code>]</dt>
+        <dd>
+          The tree construction algorithm used in XGBoost. <br>
+          <code>auto:</code> Use heuristic to choose the fastest method. For small dataset, exact greedy (<code>exact</code>) will be used.
+          For larger dataset, approximate algorithm (<code>approx</code>) will be chosen. 
+          It’s recommended to try <code>hist</code> and <code>gpu_hist</code> for higher performance with large dataset. <code>gpu_hist</code> has support for external memory.
+          Because old behavior is to always use exact greedy in single machine, the user will get a message when approximate algorithm is chosen to notify this choice.
+          <code>hist:</code> Faster histogram optimized approximate greedy algorithm.
+        </dd>
+        <dt><code>grow_policy</code> [default = <code>depthwise</code>]</dt>
+        <dd>
+          Controls a way new nodes are added to the tree. <br>
+          Currently supported only if <code>tree_method</code> is set to <code>hist</code>.<br>
+          Choices: <code>depthwise, lossguide</code> <br>
+          <ul>
+            <li><code>depthwise</code>: split at nodes closest to the root.</li>
+            <li><code>lossguide</code>: split a nodes with highest loss change.</li>
+          </ul>
         </dd>
         <dt><code>nthread</code></dt>
         <dd>Number of parallel threads to run on XGBoost. [default to maximum number of threads available if not set]</dd>
