@@ -156,6 +156,15 @@
           to be in each node. The larger min_child_weight is, the more conservative the algorithm will be. <br>
           range: [0, &infin;]
         </dd>
+        <dt><code>colsample_bytree, colsample_bylevel, colsample_bynode</code> [default=1]</dt>
+        <dd>
+          This is a family of parameters for subsampling of columns. These parameters work cumulatively. For instance, the combination <code>{'colsample_bytree':0.5, 'colsample_bylevel':0.5, 'colsample_bynode':0.5}</code> with 64 features will leave 8 features to choose from at each split.<br>
+          All <code>colsample_by*</code> parameters have a range of (0, 1], the default value of 1, and specify the fraction of columns to be subsampled. <br>
+          <code>colsample_bytree</code> is the subsample ratio of columns when constructing each tree. Subsampling occurs once for every tree constructed.<br>
+          <code>colsample_bylevel</code>  is the subsample ratio of columns for each level. Subsampling occurs once for every new depth level reached in a tree. Columns are subsampled from the set of columns chosen for the current tree. <br>
+          <code>colsample_bynode</code>  is the subsample ratio of columns for each node (split). Subsampling occurs once every time a new split is evaluated. Columns are subsampled from the set of columns chosen for the current level.<br>
+
+        </dd>
         <dt><code>nthread</code></dt>
         <dd>Number of parallel threads to run on XGBoost. [default to maximum number of threads available if not set]</dd>
         <dd></dd>
