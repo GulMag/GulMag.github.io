@@ -93,7 +93,10 @@
 
         <p><dl>
           <dt>Additive Training</dt>
-          <dd>First we need to find the <strong>parameters</strong> of the trees. 
+          <dd>First we need to find the <strong>parameters</strong> of the trees. The learning tree structure is more complex
+            than a traditional optimization problem where you can simply take the gradient. It is intractable to learn all 
+            the trees at once. An additive strategy is therfore used: fix what has been learned and add one new tree at a time. <br>
+            Check out <a href= "https://xgboost.readthedocs.io/en/latest/tutorials/model.html" target = "_blank">this tutorial</a> for more information. 
           </dd>
           <dt>Model Complexity</dt>
           <dd>Now we can turn our attention to the <strong>regulatization term</strong>. 
