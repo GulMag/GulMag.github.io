@@ -126,8 +126,22 @@
         <dt><code>booster</code> [default = <code>gbtree</code>>]></dt>
         <dd>Which booster to use. Can be a <strong>tree based model</strong> like <code>gbtree</code> or <code>dart</code>
         or a <strong>linear function</strong> like <code>gblinear</code></dd>
-        <dt><code>verbosity [default = 1]</code>></dt>
+        <dt><code>verbosity</code>[default = 1]</dt>
         <dd>Specify detail of printing messages. 0 (silent), 1 (warning), 2 (info), 3 (debug).</dd>
+        <dt><code>nthread</code></dt>
+        <dd>Number of parallel threads to run on XGBoost. [default to maximum number of threads available if not set]</dd>
+        <dd></dd>
+        </dl>
+        <h3>Parameters for Tree Booster</h3>
+        <dl>
+        <dt><code>eta</code> [default = 0.3, alias: <code>learning rate</code>>]></dt>
+        <dd>Step size shrinkage used in update to prevents overfitting. After each boosting step, we can directly get the weights of new features, 
+          and <code>eta</code> shrinks the feature weights to make the boosting process more conservative.</dd>
+        <dt><code>max_depth</code> [default = 0], alias: <code>min_split_loss</code> </dt>
+        <dd>Maximum depth of a tree. Increasing this value will make the model more complex and more likely to overfit. 
+          0 is only accepted in lossguided growing policy when tree_method is set as hist and it indicates no limit on depth. 
+          Beware that XGBoost aggressively consumes memory when training a deep tree. <br>
+        range: [0, &infin;]</dd>
         <dt><code>nthread</code></dt>
         <dd>Number of parallel threads to run on XGBoost. [default to maximum number of threads available if not set]</dd>
         <dd></dd>
