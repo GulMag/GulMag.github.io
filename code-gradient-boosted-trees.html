@@ -90,7 +90,7 @@
         Note that the model used in random forests are also tree ensembles. That means you can write a predicitve service for tree ensembles and it 
         will work for both random forests and gradient boosted trees. The difference arises from how we train them.
         <h5>Tree Boosting</h5> <!-- Tree Boosting -->
-        <a href="https://imgflip.com/i/43t47i"><img src="https://i.imgflip.com/43t47i.jpg" title="made at imgflip.com"/></a><div><a href="https://imgflip.com/memegenerator">from Imgflip Meme Generator</a></div>
+        <a href="https://imgflip.com/i/43t47i"><img src="https://i.imgflip.com/43t47i.jpg" title="made at imgflip.com"/></a>
         <p><dl>
           <dt>Additive Training</dt>
           <dd>First we need to find the <strong>parameters</strong> of the trees. The learning tree structure is more complex
@@ -99,15 +99,25 @@
             Check out <a href= "https://xgboost.readthedocs.io/en/latest/tutorials/model.html" target = "_blank">this tutorial</a> for more information. 
           </dd>
           <dt>Model Complexity</dt>
-          <dd>Now we can turn our attention to the <strong>regulatization term</strong>. 
+          <dd>Now we can turn our attention to the <strong>regulatization term</strong>, i.e. we need to define the 
+            complexity of the tree. 
           </dd>
           <dt>The Structure Score</dt>
           <dd>Basically, for a given tree structure, we push the statistics g_i and h_i to the leaves they belong to, 
-            sum the statistics together, and use the formula to calculate how goof the tree is. This score can be compared to the 
+            sum the statistics together, and use the formula to calculate how good the tree is. This score can be compared to the 
             impurity measure in a decision tree, except that it also takes the model complexity into account. 
           </dd>
           <dt>Learning the Tree Structure</dt>
-          <dd>blablabla</dd>
+          <dd>Now that we are able to measure how good a trees is, we would ideally like to enumerate all possible trees and pick the best one.
+            Since this is not feasible in practice, instead, one level of the tree at a time will be optimized. Specifically, 
+            one leaf will be split into two leaves using a formula that can be decomposed as 
+            a) the score on the new left leaf 
+            b) the score on the new right leaf
+            c) the score on the original leaf
+            d) regluarization on the additional leaf. 
+            This equation ensures that if the gain is smaller than &lambda;, the branch will not be added. This is exactly the 
+            pruning technique in tree based models.
+          </dd>
         </dl></p>
       </div> 
       <div class="card"> <!--XGBoost R Package-->
