@@ -137,6 +137,7 @@
         <dt><code>eta</code> [default = 0.3, alias: <code>learning rate</code>>]></dt>
         <dd>Step size shrinkage used in update to prevents overfitting. After each boosting step, we can directly get the weights of new features, 
           and <code>eta</code> shrinks the feature weights to make the boosting process more conservative.</dd>
+        <dt><code>gamma</code>  [default=0, alias: <code>min_split_loss</code>]</dt>
         <dt><code>max_depth</code> [default = 0], alias: <code>min_split_loss</code> </dt>
         <dd>Maximum depth of a tree. Increasing this value will make the model more complex and more likely to overfit. 
           0 is only accepted in lossguided growing policy when tree_method is set as hist and it indicates no limit on depth. 
