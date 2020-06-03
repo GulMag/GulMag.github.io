@@ -138,11 +138,24 @@
         <dd>Step size shrinkage used in update to prevents overfitting. After each boosting step, we can directly get the weights of new features, 
           and <code>eta</code> shrinks the feature weights to make the boosting process more conservative.</dd>
         <dt><code>gamma</code>  [default=0, alias: <code>min_split_loss</code>]</dt>
+        <dd>Minimum loss reduction required to make a further partition on a leaf node of the tree. 
+          The larger gamma is, the more conservative the algorithm will be. <br>
+          range: [0, &infin;]
+        </dd>
         <dt><code>max_depth</code> [default = 0], alias: <code>min_split_loss</code> </dt>
         <dd>Maximum depth of a tree. Increasing this value will make the model more complex and more likely to overfit. 
           0 is only accepted in lossguided growing policy when tree_method is set as hist and it indicates no limit on depth. 
-          Beware that XGBoost aggressively consumes memory when training a deep tree. <br>
-        range: [0, &infin;]</dd>
+          Beware that XGBoost aggressively consumes memory when training a deep tree. <br> 
+          range: [0, &infin;]
+        </dd>
+        <dt><code>min_child_weight</code> [default = 1]</dt>
+        <dd>
+          Minimum sum of instance weight (hessian) needed in a child. If the tree partition step results in a leaf node 
+          with the sum of instance weight less than min_child_weight, then the building process will give up further 
+          partitioning. In linear regression task, this simply corresponds to minimum number of instances needed 
+          to be in each node. The larger min_child_weight is, the more conservative the algorithm will be. <br>
+          range: [0, &infin;]
+        </dd>
         <dt><code>nthread</code></dt>
         <dd>Number of parallel threads to run on XGBoost. [default to maximum number of threads available if not set]</dd>
         <dd></dd>
