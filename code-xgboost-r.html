@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+  <head><link rel="stylesheet" type="text/css" href="mystyle.css"></head>
+  <style>
+    body {
+      /*background-image: url('back_stv.jpg');*/
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+    .header {
+      background-color: transparent;
+    }
+  </style>
+
+  <div class="header">
+    <h1>XGBoost in R</h1>
+    <p>Check out the <a href="#" target="_blank">documentation.</a></p>
+  </div>
+      
+  <!--------------------Navigation Bar--------------------->
+  <div class="topnav">
+      <a href="index.html">Home</a>
+  </div>
+  <!------------------------------------------------------->
+
+  <body>
+
+  <div class="row">
+    <!------------------- LEFT COLUMN ------------------>
+    <div class="leftcolumn">
+      <div class="card">
+        <h2>XGBoost Parameters</h2>
+        <h3>General Parameters</h3>
+        <dl>
+        <dt><code>booster</code> [default = <code>gbtree</code>]</dt>
+        <dd>
+          Which booster to use. Can be a <strong>tree based model</strong> like <code>gbtree</code> or <code>dart</code>
+          or a <strong>linear function</strong> like <code>gblinear</code>
+        </dd>
+        <dt><code>verbosity </code>[default = 1]</dt>
+        <dd>
+          Specify detail of printing messages. 0 (silent), 1 (warning), 2 (info), 3 (debug).
+        </dd>
+        <dt><code>nthread</code></dt>
+        <dd>
+          Number of parallel threads to run on XGBoost. [default to maximum number of threads available if not set]
+        </dd>
+        </dl>
+        <h3>Parameters for Tree Booster</h3>
+        <dl>
+        <dt><code>eta</code> [default = 0.3, alias: <code>learning rate</code>]</dt>
+        <dd>
+          Step size shrinkage used in update to prevents overfitting. After each boosting step, we can directly get the weights of new features, 
+          and <code>eta</code> shrinks the feature weights to make the boosting process more conservative.
+        </dd>
+        <dt><code>gamma</code>  [default=0, alias: <code>min_split_loss</code>]</dt>
+        <dd>
+          Minimum loss reduction required to make a further partition on a leaf node of the tree. 
+          The larger gamma is, the more conservative the algorithm will be. <br>
+          range: [0, &infin;]
+        </dd>
+        <dt><code>max_depth</code> [default = 6]</dt>
+        <dd>
+          Maximum depth of a tree. Increasing this value will make the model more complex and more likely to overfit. 
+          0 is only accepted in lossguided growing policy when tree_method is set as hist and it indicates no limit on depth. 
+          Beware that XGBoost aggressively consumes memory when training a deep tree. <br> 
+          range: [0, &infin;]
+        </dd>
+        <dt><code>min_child_weight</code> [default = 1]</dt>
+        <dd>
+          Minimum sum of instance weight (hessian) needed in a child. If the tree partition step results in a leaf node 
+          with the sum of instance weight less than min_child_weight, then the building process will give up further 
+          partitioning. In linear regression task, this simply corresponds to minimum number of instances needed 
+          to be in each node. The larger min_child_weight is, the more conservative the algorithm will be. <br>
+          range: [0, &infin;]
+        </dd>
+        <dt><code>subsample</code> [default = 1]</dt>
+        <dd>
+          Subsample ratio of the training instances. Setting it to 0.5 means that XGBoost would randomly sample half of the training data prior to growing trees. and this will prevent overfitting. 
+          Subsampling will occur once in every boosting iteration. <br>
+          range: (0,1]
+        </dd>
+        <dt><code>colsample_bytree, colsample_bylevel, colsample_bynode</code> [default=1]</dt>
+        <dd>
+          This is a family of parameters for subsampling of columns. These parameters work cumulatively. For instance, the combination <code>{'colsample_bytree':0.5, 'colsample_bylevel':0.5, 'colsample_bynode':0.5}</code> with 64 features will leave 8 features to choose from at each split.<br>
+          All <code>colsample_by*</code> parameters have a range of (0, 1], the default value of 1, and specify the fraction of columns to be subsampled. <br>
+          <code>colsample_bytree</code> is the subsample ratio of columns when constructing each tree. Subsampling occurs once for every tree constructed.<br>
+          <code>colsample_bylevel</code>  is the subsample ratio of columns for each level. Subsampling occurs once for every new depth level reached in a tree. Columns are subsampled from the set of columns chosen for the current tree. <br>
+          <code>colsample_bynode</code>  is the subsample ratio of columns for each node (split). Subsampling occurs once every time a new split is evaluated. Columns are subsampled from the set of columns chosen for the current level.
+        </dd>
+        <dt><code>lambda</code>  [default=1, alias: <code>reg_lambda</code>]</dt>
+        <dd>L2 regularization term on weights. Increasing this value will make model more conservative.</dd>
+        <dt><code>alpha</code>  [default=0, alias: <code>reg_alpha</code>]</dt>
+        <dd>L1 regularization term on weights. Increasing this value will make model more conservative.</dd>
+        <dt><code>tree_method</code> string [default= <code>auto</code>]</dt>
+        <dd>
+          The tree construction algorithm used in XGBoost. <br>
+          <code>auto:</code> Use heuristic to choose the fastest method. For small dataset, exact greedy (<code>exact</code>) will be used.
+          For larger dataset, approximate algorithm (<code>approx</code>) will be chosen. 
+          It’s recommended to try <code>hist</code> and <code>gpu_hist</code> for higher performance with large dataset. <code>gpu_hist</code> has support for external memory.
+          Because old behavior is to always use exact greedy in single machine, the user will get a message when approximate algorithm is chosen to notify this choice.
+          <code>hist:</code> Faster histogram optimized approximate greedy algorithm.
+        </dd>
+        <dt><code>grow_policy</code> [default = <code>depthwise</code>]</dt>
+        <dd>
+          Controls a way new nodes are added to the tree. <br>
+          Currently supported only if <code>tree_method</code> is set to <code>hist</code>.<br>
+          Choices: <code>depthwise, lossguide</code> <br>
+          <ul>
+            <li><code>depthwise</code>: split at nodes closest to the root.</li>
+            <li><code>lossguide</code>: split a nodes with highest loss change.</li>
+          </ul>
+        </dd>
+        </dl>
+        <h3>Learning Task Parameters</h3>
+        <dl>
+        <dt><code>objective</code> [default = <code>reg:squarederror</code>]</dt>
+        <dd>
+          <code>reg:squarederror</code>: regression with squared loss.<br>
+          <code>reg:squaredlogerror</code>: regression with squared log loss. <br>
+        </dd>
+        <dt><code>eval_metric</code> [default according to objective]</dt>
+        <dd>
+          Evaluation metrics for validation data, a default metric will be assigned according to objective 
+          (rmse for regression, and error for classification, mean average precision for ranking). User can add multiple evaluation metrics. <br>
+          Choices: 
+          <ul>
+            <li><code>rmse</code>: root mean square error</li>
+            <li><code>rmsle</code>: root mean square log error</li>
+            <li><code>mae</code>: mean absolute error</li>
+            <li><code>logloss</code>: negative log-likelihood</li>
+          </ul>
+        </dd>
+        <dt><code>seed</code> [default=0]</dt>
+        <dd>
+          Random number seed. This parameter is ignored in R package, use <code>set.seed()</code> instead.
+        </dd>
+        </dl>
+      </div>
+      <div class="card"> <!--XGBoost R Package-->
+        <h2>XGBoost in R</h2>
+        Check out the <a href="https://cran.r-project.org/web/packages/xgboost/xgboost.pdf" target = "_blank">documentation</a> on CRAN. 
+        <p><dl>
+          <dt>Installation</dt>
+          <dd>For weekly updated version it is recommended to install from github:
+            <code><pre>
+
+              install.packages("drat, repos="https://cran.rstudio.com"
+              drat::addRepo("dmly")
+              install.packages("xgboost", repos="http://dmlc.ml/drat/", type="source")
+
+            </pre></code> </dd>
+          <dt>General Procedure</dt>
+          <dd><code><pre>
+
+              # load data
+
+              data(name_dataset.train, package='xgboost')
+              data(name_dataset.test, package='xgboost')
+                
+              train = name_dataset.train
+              test = name_dataset.test
+
+              # fit model
+
+              bst = xgboost(data = train$data, label = train$label, max.depth = 2, eta = 1, nrounds = 2,
+                    nthread = 2, objective = "binary:logistic")
+
+              # predict
+
+              pred = predict(bst, test$data)
+
+            </pre></code></dd>
+          </dl></p>
+      </div> 
+    </div>
+    <!------------------- RIGHT COLUMN ------------------>
+    <div class="rightcolumn">
+      <div class="card" background-color: none>
+        <h2>Navigation</h2>
+        <div class = "btn-group">
+            <a href="code-string-matching.html"><button class="button">String Matching</button></a>
+            <a href="code-spatial-join.html"><button class="button">Spatial Join Python</button></a>
+            <a href="code-quick-r.html"><button class="button">Quick R</button></a>
+            <a href="code-nlp.html"><button class="button">NLP</button></a>
+            <a href="code-gradient-boosted-trees.html"><button class="button">Gradient Boosted Trees</button></a>
+          </div>
+      </div>
+
+      <div class="card" background-color: none>
+        <h2>Useful Links</h2>
+        <div class = "btn-group">
+            <a href="https://cran.r-project.org/web/packages/xgboost/xgboost.pdf"><button class="button">R Vignette xgboost</button></a>
+            <a href="https://rdrr.io/cran/xgboost/f/inst/doc/xgboost.pdf"><button class="button">R Vignette xgboost (short)</button></a>
+            <a href="https://rdrr.io/cran/xgboost/f/vignettes/discoverYourData.Rmd"><button class="button">R Understand your dataset with XGBoost</button></a>
+          </div>
+      </div>
+
+    </div>
+    <!-------------------- END COLUMN ------------------->
+  </div>
+
+  </body>
+</html>
