@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+  <head><link rel="stylesheet" type="text/css" href="mystyle.css"></head>
+  <style>
+    body {
+      /*background-image: url('back_stv.jpg');*/
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+    .header {
+      background-color: transparent;
+    }
+  </style>
+
+  <div class="header">
+    <h1>String Matching</h1>
+    <p>Resize the browser window to see the responsive effect.</p>
+  </div>
+      
+  <!--------------------Navigation Bar--------------------->
+  <div class="topnav">
+      <a href="index.html">Home</a>
+  </div>
+  <!------------------------------------------------------->
+
+  <body>
+
+    <div class="row">
+      <!------------------- LEFT COLUMN ------------------>
+      <div class="leftcolumn">
+
+        <div class="card"> <!--LevenshteinDistance-->
+            <h2>key attributes of a raster object</h2>
+            <p>spatial extent, resolution and coordinate reference system</p>
+            <p><a href="https://www.neonscience.org/resources/learning-hub/tutorials/raster-res-extent-pixels-r" target = "_blank">link</a> </a></p>
+          </div> 
+
+        <div class="card">
+          <h2>Raster Conversion in R</h2>
+          <h5><code>raster</code> Load Raster Data</h5>
+          <p padding="20px" background="rgba(0, 0, 0, 0.05)"><code><pre>
+            GDALinfo("path") #before loading into environment
+            r15 = raster("path")
+            r15
+            summary(r15)
+          </pre></code>
+          </p>
+          <h5><code>aggregate</code> Aggregate Raster Data (lower resolution)</h5>
+          <p><pre><code>
+            r15_aggr = aggregate(r15, 60,fun=sum) <br>
+            </code></pre>
+          </p>
+          <p>
+            <a href="https://www.rdocumentation.org/packages/raster/versions/3.4-5/topics/aggregate" target = "_blank">Video</a>
+            BLablablebledjkflsjlsdfk 
+          </p>
+          <h5><code>plot</code> Check out new raster object</h5>
+          <p><pre><code>
+            r15_test = aggregate(r15, 60,fun=sum) <br>
+            r15_df <- as.data.frame(r15_test, xy = TRUE)<br>
+            str(r15_df) <br>
+            ggplot() + <br>
+                 geom_raster(data = r15_df , aes(x = x, y = y, fill = w001001)) + <br>
+                 scale_fill_viridis_c() + <br>
+                 coord_quickmap() <br>
+            </code></pre>
+          </p>
+          <h5><code>save</code>Write Raster Data To A File</h5>
+          
+          <p><pre><code>
+            writeRaster(x, filename, format, ...) <br>
+            </code></pre>
+          </p>
+          <p>
+              File types include raster (.grd), ascii (.asc), GTiff (.rif),...
+            <a href="https://www.rdocumentation.org/packages/raster/versions/3.4-5/topics/writeRaster" target = "_blank">Video</a>
+          </p>
+
+        </div> 
+        <div class="card">
+          <h2>Fuzzy String Matching</h2>
+          <p>Fuzzy string matching is the technique of finding strings that match a pattern approximately (rather than exactly). 
+            I.e., it is a type of search that will find matches even when users misspell words or enter only partial words for the search. 
+            It is also known as approximate string matching.</p>
+          <p>FuzzyWuzzy is a library of Python which is used for string matching.
+            Basically it uses Levenshtein Distance to calculate the differences between sequences.</p>
+          <p padding="20px" background="rgba(0, 0, 0, 0.05)">
+            <code>
+              pip install fuzzywuzzy <br>   
+              pip install python-Levenshtein
+            </code>
+          </p>
+        </div> 
+        
+        <div class="card"> <!--ClassificationTextSearch-->
+          <h2>Classification of text searching approaches</h2>
+          <!--<h5>March 2, 2017</h5> 
+          <div class="fakeimg" style="height:200px;"></div> -->
+          <img src="pics/classification.png" alt="Trulli" style="width=400px;height=300;">
+          <p>Because the string is the central notion in this area, stringology has
+            become the nickname of this subfield of algorithmic research. To achieve
+            fast text searching, we can prepare either the pattern or the text or both.
+            This preparation is called preprocessing. We can use preprocessing as the
+            criterion for a general classification of text searching approaches. There are
+            four categories in this classification.
+            <ol>
+              <li>Neither the pattern nor the text is preprocessed. Elementary algorithms belong in this category.</li>
+              <li>The pattern is preprocessed. Pattern matching automata belong in
+                this category.</li>
+              <li>The text is preprocessed. Factor automata and index methods belong
+                in this category.</li>
+              <li>Both the text and the pattern are preprocessed. Signature methods,
+                pattern matching automata and factor automata belong in this category.</li>
+            </ol></p>
+        </div> 
+        <div class="card"> <!--Algorithms-->
+          <h2>String matching or searching algorithms</h2>
+          <h5>March 27th, 2020</h5>
+          <p>Try to find places where
+          one or several strings (also called patterns) are found within a
+          larger string (searched text). There are 2 basic variants: 
+            <ul>
+              <li>Given a pattern, find its occurrences in any initially unknown
+              text: Solutions by preprocessing the pattern using finite automata
+              models or combinatorial properties of strings. In COMPSCI 369: only algorithms of this kind.</li>
+              <li>Given a text, find occurrences of any initially unknown pattern.
+              Solutions by indexing the text with the help of trees or finite
+              automata (e.g. at Google).</li>
+            </ul>
+          </p>
+          <p>Examples of Single-pattern algorithms 
+            <ul>
+              <li>Naive (Brute Force) Algorithm<br>
+              <code><pre>
+                for ( j = 0; j <= n - m; j++ ) { <br>
+                  for ( i = 0; i < m && x[i] == y[i + j]; i++ ); <br></m>
+                  if ( i >= m ) return j; <br>
+                } </pre></code>
+              </li>
+              <li>Rabin-Karp</li>
+              <li>Finite state automaton</li> 
+              <li>Knuth-Morris-Pratt</li>
+              <li>Boyer-Moore</li>
+            </ul>
+          </p>
+        </div>
+      </div>
+      <!------------------- RIGHT COLUMN ------------------>
+      <div class="rightcolumn">
+        <div class="card" background-color: none>
+          <h2>Navigation</h2>
+          <div class = "btn-group">
+            <a href="code-string-matching.html"><button class="button">String Matching</button></a>
+            <a href="code-spatial-join.html"><button class="button">Spatial Join Python</button></a>
+            <a href="code-quick-r.html"><button class="button">Quick R</button></a>
+            <a href="code-nlp.html"><button class="button">NLP</button></a>
+            <a href="code-gradient-boosted-trees.html"><button class="button">Gradient Boosted Trees</button></a>
+            <a href="code-xgboost-r.html"><button class="button">XGBoost in R</button></a>
+          </div>
+        </div>
+      </div>
+      <!-------------------- END COLUMN ------------------->
+    </div>
+  </body>
+  <!--<p><form><input type="button" value="Go back!" onclick="history.back()"></form></p>-->
+</html>
