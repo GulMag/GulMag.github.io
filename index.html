@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html>
-    <head><link rel="stylesheet" type="text/css" href="mystyle.css"></head>
+    <head>
+      <link rel="stylesheet" type="text/css" href="mystyle.css">
+    
+      <script type = "text/javascript">
+        function addParagraphText() {
+          document.getElementById("para").innerHTML = "Thanks for adding text!"
+        }
+      </script>
+    
+    
+    </head>
 
     <div class="header">
         <h1>Website</h1>
@@ -60,6 +70,11 @@
     </div> 
     <!-------------------------------------------------------> 
 
+    <h1>Let's try some javascrupt stuff (button)</h1>
+
+    <button onclick = "addParagraphText();">Yeah Baby, Click Me. Mhmm</button>
+
+    <p id = "para"></p>
 
     <!-- Im BLUE stuff section for fun-->
 
