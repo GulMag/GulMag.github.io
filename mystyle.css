@@ -2,8 +2,6 @@
 
 
 
-
-
 body {
     background-color: rgb(67, 166, 199); 
     margin-left: 80px;
@@ -301,18 +299,3 @@ html {
 }
 /******************************************************/
 
-/*TABLE STYLES*/
-table {
-  border-collapse: collapse; 
-}
-
-table th {
-  text-align: left;
-  background-color: #3e8e41;
-  color:rgb(212, 212, 212);
-  padding: 4px 30px 4px 8px;
-}
-
-table td {
-  padding: 4px 8px;
-}
