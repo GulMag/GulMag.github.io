@@ -305,3 +305,7 @@ table th {
   color:rgb(212, 212, 212);
   padding: 4px 30px 4px 8px;
 }
+
+table td {
+  padding: 4px 8px;
+}
