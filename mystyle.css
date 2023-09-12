@@ -313,3 +313,7 @@ table th {
 table td {
   padding: 4px 8px;
 }
+
+table tr:nth-child(odd) td {
+  background-color: #b8f7ba
+}
