@@ -8,9 +8,7 @@
         function addParagraphText() {
           document.getElementById("para").innerHTML = "Thanks for adding text!";
         }
-      </script>
 
-      <script type = "text/javascript">
         function displayInput() {
           var testInput = document.getElementById("name").value;
 
@@ -20,6 +18,11 @@
           else {
             document.getElementById("para").innerHTML = testInput; 
           }
+        }
+
+        function myAlertMath() {
+          var userNumber = document.getElementById("mathinput").value; 
+          alert("Your number x 5 is " + userNumber*5);
         }
       </script>
 
@@ -85,19 +88,26 @@
     </div> 
     <!------------------------------------------------------->
     <div>
-    <h1> Let's try some javascrupt stuff (button)</h1>
-    <button onclick = "addParagraphText();">Yeah Baby, Click Me</button>
-    <p id = "para"></p>
+      <h1> Let's try some javascrupt stuff (button)</h1>
+      <button onclick = "addParagraphText();">Yeah Baby, Click Me</button>
+      <p id = "para"></p>
     </div>   
-    
-    <h1> TEST TEST TEST</h1>
 
     <div>
-    <h1> Let's try some more javascrupt stuff (button)</h1>
-    <input id = "name" type = "text"/>
-    <button onclick = "displayInput();">color it</button>
-    <p id = "para" style = color:blue></p>
+      <h1> Let's try some more javascrupt stuff (button)</h1>
+      <input id = "name" type = "text"/>
+      <button onclick = "displayInput();">color it</button>
+      <p id = "para" style = color:blue></p>
     </div>
+
+    <div>
+      <h1>Now let's alert us!</h1>
+      <button onclick = "alert('The test worked')">Alter Math</button>
+      <input id = "mathInput" type = number"><button onclick="myAlertMath" > Multiply by 5</button>
+      <p id = "test"></p>
+    </div>
+
+
     <!-- Im BLUE stuff section for fun-->
 
     <H1 style = "color:blue;">This is my H1 Heading</H1>
