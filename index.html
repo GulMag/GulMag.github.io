@@ -3,7 +3,11 @@
     <head>
       <link rel="stylesheet" type="text/css" href="mystyle.css">
     
-      <!-- JAVA SCRIPT STUFF -->
+      <!-- JAVA SCRIPT STUFF 
+      Difference alert and prompt: An alert simply displays a message to the user, 
+      where as the prompt actually asks the user for some sort of input.
+      -->
+
       <script type = "text/javascript">
         function addParagraphText() {
           document.getElementById("para1").innerHTML = "Thanks for adding text!";
@@ -23,6 +27,15 @@
         function myAlertMath() {
           var userNumber = document.getElementById("mathInput").value; 
           alert("Your number x 5 is " + userNumber * 5);
+        }
+
+        function myPrompt() {
+          var person = prompt("Please enter your name!", "Frida");
+          if (person != "") {
+            document.getElementById("testPrompt").innerHTML = "Hello person named " + person + "! How are you today?"
+          } else {
+            alert("Hey, no input");
+          }
         }
       </script>
 
@@ -102,11 +115,16 @@
 
     <div>
       <h1>Now let's alert us!</h1>
-      <button onclick = "alert('The test worked')">Alert Math</button>
+      <button onclick = "alert('The test worked')">Click Me</button>
       <input id = "mathInput" type = "number"><button onclick="myAlertMath()" > Multiply by 5</button>
       <p id = "test"></p>
     </div>
 
+    <div>
+      <h1>Now let's PROMT us!</h1>
+      <button onclick = "myPrompt()">Click me and do stuff</button>
+      <p id = "testPrompt"></p>
+    </div>
 
     <!-- Im BLUE stuff section for fun-->
 
