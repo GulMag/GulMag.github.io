@@ -3,12 +3,26 @@
     <head>
       <link rel="stylesheet" type="text/css" href="mystyle.css">
     
+      <!-- JAVA SCRIPT STUFF -->
       <script type = "text/javascript">
         function addParagraphText() {
-          document.getElementById("para").innerHTML = "Thanks for adding text!"
+          document.getElementById("para").innerHTML = "Thanks for adding text!";
         }
       </script>
-    
+
+      <script type = "text/javascript">
+        function displayInput() {
+          var testInput = document.getElementById("name").value;
+
+          if (testInput.length()==0) {
+            document.getElementById("para").innerHTML = "Hey, you didn't type anything!";
+          } else {
+            document.getElementById("para").innerHTML = testInput; 
+          }
+        }
+      </script>
+
+      <!-- JAVA SCRIPT STUFF -->
     
     </head>
 
@@ -70,11 +84,14 @@
     </div> 
     <!-------------------------------------------------------> 
 
-    <h1>Let's try some javascrupt stuff (button)</h1>
-
-    <button onclick = "addParagraphText();">Yeah Baby, Click Me. Mhmm</button>
-
+    <h1> Let's try some javascrupt stuff (button)</h1>
+    <button onclick = "addParagraphText();">Yeah Baby, Click Me>/button>
     <p id = "para"></p>
+
+    <h1> Let's try some more javascrupt stuff (button)</h1>
+    <input id = "name" type = "text"/>
+    <button onclick = "displayInput();">color it</button>
+    <p id = "para" style = color:blue></p>
 
     <!-- Im BLUE stuff section for fun-->
 
@@ -117,7 +134,7 @@
 
       </div></div>
 
-      
+
 <!-- Table section for fun-->
       <div>
         <h2>Table Test</h2>
