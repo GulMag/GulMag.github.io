@@ -37,6 +37,25 @@
             alert("Hey, no input");
           }
         }
+
+        function checkField1() {
+          var field = document.getElementById("field1").value; 
+          if (field.length < 5) {
+            document.getElementById("message1").innerHTML = "Too short!";
+          } else {
+            document.getElementById("message1").innerHTML = "Right on!";
+          }
+        }
+
+        function checkField2() {
+          var field = document.getElementById("field2").value; 
+          if (field.length < 5) {
+            document.getElementById("message2").innerHTML = "Too short!";
+          } else {
+            document.getElementById("message2").innerHTML = "Right on!";
+          }
+        }
+
       </script>
 
       <!-- JAVA SCRIPT STUFF -->
@@ -48,7 +67,7 @@
         <p>Resize the browser window to see the responsive effect.</p>
     </div>
       
-    <body>
+    <body onload = "alert('Sweet daaaawg! The content has loaded');">
     <!--------------------Navigation Bar--------------------->
     <div class="topnav">
         <a href="index.html">Home</a>
@@ -123,6 +142,13 @@
     <div>
       <h1>Now let's PROMT us!</h1>
       <button onclick = "myPrompt()">Click me and do stuff</button>
+      <p id = "testPrompt"></p>
+    </div>
+
+    <div>
+      <h1>Do the onblur check thingy. woop woop. </h1>
+      <input id="field1" type = "text" onblur="checkField1();"/> <span id="message1"></span>
+      <input id="field2" type = "text"/> <span id="message2"></span>
       <p id = "testPrompt"></p>
     </div>
 
