@@ -311,7 +311,7 @@ table {
 
 table th {
   text-align: left;
-  background-color: #3e8e41;
+  background-color: #699bb7;
   color:rgb(212, 212, 212);
   padding: 4px 30px 4px 8px;
 }
@@ -321,5 +321,5 @@ table td {
 }
 
 table tr:nth-child(odd) td {
-  background-color: #b8f7ba
+  background-color: #c3c9cc;
 }
