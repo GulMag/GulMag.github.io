@@ -1,198 +1,195 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <link rel="stylesheet" type="text/css" href="mystyle.css">
+  <head>
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+  
+    <!-- JAVA SCRIPT STUFF 
+    Difference alert and prompt: An alert simply displays a message to the user, 
+    where as the prompt actually asks the user for some sort of input.
+    -->
+
+    <script type = "text/javascript">
+      function addParagraphText() {
+        document.getElementById("para1").innerHTML = "Thanks for adding text!";
+      }
     
-      <!-- JAVA SCRIPT STUFF 
-      Difference alert and prompt: An alert simply displays a message to the user, 
-      where as the prompt actually asks the user for some sort of input.
-      -->
+      function displayInput() {
+        var testInput = document.getElementById("name").value;
 
-      <script type = "text/javascript">
-        function addParagraphText() {
-          document.getElementById("para1").innerHTML = "Thanks for adding text!";
+        if (testInput.length ==0) {
+          document.getElementById("para").innerHTML = "Hey, you didn't type anything!";
+        } 
+        else {
+          document.getElementById("para").innerHTML = testInput; 
         }
-      
-        function displayInput() {
-          var testInput = document.getElementById("name").value;
+      }
 
-          if (testInput.length ==0) {
-            document.getElementById("para").innerHTML = "Hey, you didn't type anything!";
-          } 
-          else {
-            document.getElementById("para").innerHTML = testInput; 
-          }
+      function myAlertMath() {
+        var userNumber = document.getElementById("mathInput").value; 
+        alert("Your number x 5 is " + userNumber * 5);
+      }
+
+      function myPrompt() {
+        var person = prompt("Please enter your name!", "Frida");
+        if (person != "") {
+          document.getElementById("testPrompt").innerHTML = "Hello person named " + person + "! How are you today?"
+        } else {
+          alert("Hey, no input");
         }
+      }
 
-        function myAlertMath() {
-          var userNumber = document.getElementById("mathInput").value; 
-          alert("Your number x 5 is " + userNumber * 5);
+      function checkField1() {
+        var field = document.getElementById("field1").value; 
+        if (field.length < 5) {
+          document.getElementById("message1").innerHTML = "Too short!";
+        } else {
+          document.getElementById("message1").innerHTML = "Right on!";
         }
+      }
 
-        function myPrompt() {
-          var person = prompt("Please enter your name!", "Frida");
-          if (person != "") {
-            document.getElementById("testPrompt").innerHTML = "Hello person named " + person + "! How are you today?"
-          } else {
-            alert("Hey, no input");
-          }
+      function checkField2() {
+        var field = document.getElementById("field2").value; 
+        if (field != "") {
+          document.getElementById("message2").innerHTML = "Ok!";
+        } else {
+          document.getElementById("message2").innerHTML = "You gotta enter sthg yo";
         }
+      }
 
-        function checkField1() {
-          var field = document.getElementById("field1").value; 
-          if (field.length < 5) {
-            document.getElementById("message1").innerHTML = "Too short!";
-          } else {
-            document.getElementById("message1").innerHTML = "Right on!";
-          }
-        }
+    </script>
 
-        function checkField2() {
-          var field = document.getElementById("field2").value; 
-          if (field != "") {
-            document.getElementById("message2").innerHTML = "Ok!";
-          } else {
-            document.getElementById("message2").innerHTML = "You gotta enter sthg yo";
-          }
-        }
+    <!-- BUTTONS USING JAVA SCRIPT STUFF -->
+  
+  </head>
 
-      </script>
-
-      <!-- BUTTONS USING JAVA SCRIPT STUFF -->
+  <div class="header">
+    <center>
+    <h1>Website</h1>
+    </center>
+    <p>Resize the browser window to see the responsive effect.</p>
+  </div>
     
-    </head>
-
-    <div class="header">
-      <center>
-      <h1>Website</h1>
-      </center>
-      <p>Resize the browser window to see the responsive effect.</p>
-    </div>
-      
-    <body onload = "alert('Sweet daaaawg! The content has loaded');">
-    <!--------------------Navigation Bar--------------------->
-    <div class="topnav">
-        <a href="index.html">Home</a>
-        <a href="corona.html">Corona Updates</a>
-        <div class="dropdown">
-          <button class="dropbtn">Statistik</button>
-          <div class="dropdown-content">
-            <a href="#">Wahrscheinlichkeitsrechnung</a>
-            <a href="statistik-zv-diskret.html">Zufallsvariablen</a>
-            <a href="statistik-verteilungen.html">Verteilungen</a>
-            <!-- <a href="#">Statistisches Schätzen</a>
-            <a href="#">Hypothesen Testen</a>
-            <a href="#">Regression</a> -->
-          </div>
+  <body onload = "alert('Sweet daaaawg! The content has loaded');">
+  <!--------------------Navigation Bar--------------------->
+  <div class="topnav">
+      <a href="index.html">Home</a>
+      <a href="corona.html">Corona Updates</a>
+      <div class="dropdown">
+        <button class="dropbtn">Statistik</button>
+        <div class="dropdown-content">
+          <a href="#">Wahrscheinlichkeitsrechnung</a>
+          <a href="statistik-zv-diskret.html">Zufallsvariablen</a>
+          <a href="statistik-verteilungen.html">Verteilungen</a>
+          <!-- <a href="#">Statistisches Schätzen</a>
+          <a href="#">Hypothesen Testen</a>
+          <a href="#">Regression</a> -->
         </div>
-        <a href="statistics.html">Statistics</a>
-        <div class="dropdown">
-          <button class="dropbtn"><a href="statistics.html"></a>Code</a></button>
-          <div class="dropdown-content">
-            <a href="code-string-matching.html">String Matching</a>
-            <a href="code-quick-r.html">R</a>
-            <a href="code-spatial-join">Spatial Join</a>
-            <a href="code-nlp.html">Natural Language Processing</a>
-            <a href="code-gradient-boosted-trees.html">Gradient Boosted Trees</a>
-            <a href="code-xgboost-r.html">XGBoost in R</a>
-          </div>
+      </div>
+      <a href="statistics.html">Statistics</a>
+      <div class="dropdown">
+        <button class="dropbtn"><a href="statistics.html"></a>Code</a></button>
+        <div class="dropdown-content">
+          <a href="code-string-matching.html">String Matching</a>
+          <a href="code-quick-r.html">R</a>
+          <a href="code-spatial-join">Spatial Join</a>
+          <a href="code-nlp.html">Natural Language Processing</a>
+          <a href="code-gradient-boosted-trees.html">Gradient Boosted Trees</a>
+          <a href="code-xgboost-r.html">XGBoost in R</a>
         </div>
-        <div class="dropdown">
-          <button class="dropbtn">Economics</button>
-          <div class="dropdown-content">
-          <a href="conflict.html">Conflict Data</a>
-          <!--<a href="co2.html">CO2 Emission</a>
-          <a href="political.html">Political Economy</a> -->
-          </div> 
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">Economics</button>
+        <div class="dropdown-content">
+        <a href="conflict.html">Conflict Data</a>
+        <!--<a href="co2.html">CO2 Emission</a>
+        <a href="political.html">Political Economy</a> -->
+        </div> 
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">Star Trek</button>
+        <div class="dropdown-content">
+          <a href="startrek-next-generation.html">The Next Generation</a>
+          <a href="startrek-voyager.html">Voyager</a>
         </div>
-        <div class="dropdown">
-          <button class="dropbtn">Star Trek</button>
+      </div>
+      <!--<div class="dropdown">
+        <button class="dropbtn">Other Stuff</button>
           <div class="dropdown-content">
-            <a href="startrek-next-generation.html">The Next Generation</a>
-            <a href="startrek-voyager.html">Voyager</a>
-          </div>
-        </div>
-        <!--<div class="dropdown">
-          <button class="dropbtn">Other Stuff</button>
-            <div class="dropdown-content">
-            <a href="lena.html">Lenas Atmos</a>
-            <a href="rezepte.html">Recipes</a>
-          </div> 
-        </div> -->
-    </div> 
-    <!------------------------------------------------------->
-    <div>
-      <h1> Let's try some javascrupt stuff (button)</h1>
-      <button onclick = "addParagraphText();">Yeah Baby, Click Me</button>
-      <p id = "para1"></p>
-    </div>   
+          <a href="lena.html">Lenas Atmos</a>
+          <a href="rezepte.html">Recipes</a>
+        </div> 
+      </div> -->
+  </div> 
+  <!------------------------------------------------------->
+  <div>
+    <h1> Let's try some javascrupt stuff (button)</h1>
+    <button onclick = "addParagraphText();">Yeah Baby, Click Me</button>
+    <p id = "para1"></p>
+  </div>   
 
-    <div>
-      <h1> Let's try some more javascrupt stuff (button)</h1>
-      <input id = "name" type = "text"/>
-      <button onclick = "displayInput();">color it</button>
-      <p id = "para" style = color:blue></p>
-    </div>
+  <div>
+    <h1> Let's try some more javascrupt stuff (button)</h1>
+    <input id = "name" type = "text"/>
+    <button onclick = "displayInput();">color it</button>
+    <p id = "para" style = color:blue></p>
+  </div>
 
-    <div>
-      <h1>Now let's alert us!</h1>
-      <button onclick = "alert('The test worked')">Click Me</button>
-      <input id = "mathInput" type = "number"><button onclick="myAlertMath()" > Multiply by 5</button>
-      <p id = "test"></p>
-    </div>
+  <div>
+    <h1>Now let's alert us!</h1>
+    <button onclick = "alert('The test worked')">Click Me</button>
+    <input id = "mathInput" type = "number"><button onclick="myAlertMath()" > Multiply by 5</button>
+    <p id = "test"></p>
+  </div>
 
-    <div>
-      <h1>Now let's PROMT us!</h1>
-      <button onclick = "myPrompt()">Click me and do stuff</button>
-      <p id = "testPrompt"></p>
-    </div>
+  <div>
+    <h1>Now let's PROMT us!</h1>
+    <button onclick = "myPrompt()">Click me and do stuff</button>
+    <p id = "testPrompt"></p>
+  </div>
 
-    <div>
-      <h1>Do the onblur check thingy. woop woop. </h1>
-      <input id="field1" type = "text" onblur="checkField1();"/> <span id="message1"></span>
-      <input id="field2" type = "text" onblur="checkField2();"/> <span id="message2"></span>
-    </div>
+  <div>
+    <h1>Do the onblur check thingy. woop woop. </h1>
+    <input id="field1" type = "text" onblur="checkField1();"/> <span id="message1"></span>
+    <input id="field2" type = "text" onblur="checkField2();"/> <span id="message2"></span>
+  </div>
 
-    <!-- Im BLUE stuff section for fun-->
-
+  <!-- Im BLUE stuff section for fun-->
+  <div>
     <h1>This is my H1 Heading</h1>
-
     <p>I am not sure what my website's content will be</p>
-
     <p style="font-size:200%;color:blue;">I am not sure what my website's content will be. But this is for sure double the size as the line before. And it's blue. You're blue!</p>
     <p style="font-size:200%;color:blue;">
-    <a href= "https://www.youtube.com/watch?v=68ugkg9RePc" target="_blank">I am I'm blue daba di daba DIE</a>
+      <a href= "https://www.youtube.com/watch?v=68ugkg9RePc" target="_blank">I am I'm blue daba di daba DIE</a>
     </p>
     <center>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/68ugkg9RePc?si=4GhFmGKCJego0UCp" ></iframe>
-    </center>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/68ugkg9RePc?si=4GhFmGKCJego0UCp" ></iframe>
+    </center>  
+  </div>
 
-    <!-- Im BLUE stuff section for fun-->
+  <!-- Im BLUE stuff section for fun-->
 
+  <!--
+  <form action="comment.php" method="get">
+    Name: <input type="text" xname="name"><br>
+    Comment: <input type="text" name="comment"><br>
+    <input type="submit">
+  </form> -->
 
+  <div class="card">
+    <h1> BLBLBL Let's try and search some (movie) stuff! </h1>
 
-    <form action="comment.php" method="get">
-      Name: <input type="text" xname="name"><br>
-      Comment: <input type="text" name="comment"><br>
-      <input type="submit">
-    </form>
-
-    <div class="card">
-      <h1> BLBLBL Let's try and search some (movie) stuff! </h1>
-
-      <div id ="main" class="shadow_box"> <div id="content">
-        <center>
-          <form action="" method="GET" names="">
-            <table>
-              <tr>
-                <td><input type = "text" name ="k" placeholder="search something" autocomplete="off"></td>
-                <td><input type ="submit" names = "" vakue ="Search"></td>
-              </tr>
-            </table>
-          </form>
-        </center>
-
-      </div></div>
+    <div id ="main" class="shadow_box" id="content">
+      <center>
+        <form action="" method="GET" names="">
+          <table>
+            <tr>
+              <td><input type = "text" name ="k" placeholder="search something" autocomplete="off"></td>
+              <td><input type ="submit" names = "" vakue ="Search"></td>
+            </tr>
+          </table>
+        </form>
+      </center>
+    </div>
 
 
 <!-- Table section for fun-->
