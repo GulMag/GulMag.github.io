@@ -9,11 +9,15 @@ p {
     margin-left: 20px;
 }
 
+div {
+  margin-left: 20px;
+}
+
 h1 {
-    color: rgb(255, 255, 255); 
-    /*margin-left: 20px;*/
-    text-align: left;
-    background-color: rgb(0, 87, 102);
+  color: rgb(255, 255, 255); 
+  /*margin-left: 20px;*/
+  text-align: left;
+  background-color: rgb(0, 87, 102);
 }
 
 dl {
@@ -38,9 +42,9 @@ dd {
     box-sizing: border-box;
   }
 
-  p.ex1 {
-    margin-left: 30px;
-  }
+p.ex1 {
+  margin-left: 30px;
+}
 
 
 .col-1 {width: 8.33%;}
@@ -70,24 +74,23 @@ html {
     font-family: "Lucida Sans", sans-serif;
   }
   
-  
-  .menu ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .menu li {
-    padding: 8px;
-    margin-bottom: 7px;
-    background-color :#33b5e5;
-    color: #ffffff;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  }
-  
-  .menu li:hover {
-    background-color: #0099cc;
-  }
+.menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  padding: 8px;
+  margin-bottom: 7px;
+  background-color :#33b5e5;
+  color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.menu li:hover {
+  background-color: #0099cc;
+}
 
 * {
   box-sizing: border-box;
