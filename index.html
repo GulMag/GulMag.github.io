@@ -58,11 +58,11 @@
 
       function checkPassword() {
         var field = document.getElementById("password_entered").value; 
-        var regex = /^[A-Za-z]{5}$/;
+        var regex = /^[A-Za-z]{5,10}$/;
         if (regex.test(field)) {
           document.getElementById("messagePassword").innerHTML = "Input accepted!";
         } else {
-          document.getElementById("messagePassword").innerHTML = "5 letters are required for password!";
+          document.getElementById("messagePassword").innerHTML = "Enter at least 5 letters!";
         }
       }
 
