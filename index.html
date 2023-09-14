@@ -158,6 +158,7 @@
   <div class="row">
     <h2>Let's try a form that does not really do anything yet. </h2>
     <div class="column">
+      <h3>Login Info</h3>
       <form>
         First name: <br>
         <input type="text" name="firstname" required><br>
@@ -167,8 +168,33 @@
         <input type="password" name="password"><br>
       </form>
     </div>
-    <div class="column"></div>
-    <div class="column"></div>
+    <div class="column">
+      <h3>Food and Skills</h3>
+      <form>
+        <input type="radio" name="food" value="Pizza">Pizza<br>
+        <input type="radio" name="food" value="Tacos">Tacos<br>
+        <input type="radio" name="food" value="Salad">Salad<br>
+
+        <input type="checkbox" name="skills" value="HTML">I know HTML<br>
+        <input type="checkbox" name="skills" value="JavaScript">I know JavaScript<br>
+      </form>
+    </div>
+    <div class="column">
+      <h3>Other Stuff</h3>
+      <form>
+        Now choose a quantity: <br>
+        <input type="number" name="quantity" min="1" max="10"><br>
+  
+        Enter your birthday: <br>
+        <input type="date" name="birthday"><br>
+  
+        Select your favorite color: <br>
+        <input type="color" name="favcolor"> <br>
+      </form>
+    </div>
+    <form>
+      <input type="submit" value="Submit"><br>
+    </form>
   </div>
 
   <div>
