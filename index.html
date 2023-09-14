@@ -58,7 +58,7 @@
 
       function checkPassword() {
         var field = document.getElementById("password").value; 
-        var regex = /[A-Za-z] {5}$/;
+        var regex = /^[A-Za-z] {5}$/;
         if (regex.test(field)) {
           document.getElementById("messagePassword").innerHTML = "Input accepted!";
         } else {
