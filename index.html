@@ -159,7 +159,7 @@
     <h2>Let's try a form that does not really do anything yet. </h2>
     <form>
       First name: <br>
-      <input type="text" name="firstname"><br>
+      <input type="text" name="firstname" required><br>
       Last name: <br>
       <input type="text" name="lastname"><br>
       User password: <br>
@@ -169,11 +169,14 @@
       <input type="radio" name="food" value="Tacos">Tacos<br>
       <input type="radio" name="food" value="Salad">Salad<br>
 
-      <input type="checkbox" name="skills" value="HTML">HTML<br>
-      <input type="checkbox" name="skills" value="JavaScript">JavaScript<br>
+      <input type="checkbox" name="skills" value="HTML">I know HTML<br>
+      <input type="checkbox" name="skills" value="JavaScript">I know JavaScript<br>
 
       Now choose a quantity: <br>
-      <input type="numer" name="quantity" min="1" max="10">
+      <input type="number" name="quantity" min="1" max="10"><br>
+
+      Enter your birthday: <br>
+      <input type="date" name="birthday"><br>
 
       Select your favorite color: <br>
       <input type="color" name="favcolor"> <br>
