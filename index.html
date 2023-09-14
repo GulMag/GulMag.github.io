@@ -57,12 +57,12 @@
       }
 
       function checkPassword() {
-        var field = document.getElementById("password").value; 
+        var field = document.getElementById("password_entered").value; 
         var regex = /^[A-Za-z] {5}$/;
         if (regex.test(field)) {
           document.getElementById("messagePassword").innerHTML = "Input accepted!";
         } else {
-          document.getElementById("messagePassword").innerHTML = "5 letter are required for password!";
+          document.getElementById("messagePassword").innerHTML = "5 letters are required for password!";
         }
       }
 
@@ -175,7 +175,7 @@
         Last name: <br>
         <input type="text" name="lastname"/><br>
         User password: <br>
-        <input id="password" type="password" name="password" onblur="checkPassword();"/><span id = "messagePassword"></span><br>
+        <input id="password_entered" type="password" name="password" onblur="checkPassword();"/><span id = "messagePassword"></span><br>
       </form>
     </div>
     <div class="column">
