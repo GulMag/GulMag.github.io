@@ -56,6 +56,16 @@
         }
       }
 
+      function checkPassword() {
+        var field = document.getElementById("password").value; 
+        var regex = /[A-Za-z] {5}$/
+        if (regex.test(field)) {
+          document.getElementById("messagePassword").innerHTML = "Input accepted!";
+        } else {
+          document.getElementById("messagePassword").innerHTML = "5 letter are required for password!";
+        }
+      }
+
     </script>
 
     <!-- BUTTONS USING JAVA SCRIPT STUFF -->
@@ -161,22 +171,22 @@
       <h3>Login Info</h3>
       <form>
         First name: <br>
-        <input type="text" name="firstname" required><br>
+        <input type="text" name="firstname" required/><br>
         Last name: <br>
-        <input type="text" name="lastname"><br>
+        <input type="text" name="lastname"/><br>
         User password: <br>
-        <input type="password" name="password"><br>
+        <input id="password" type="password" name="password" onblur="checkPassword();"/><span id = "messagePassword"></span><br>
       </form>
     </div>
     <div class="column">
       <h3>Food and Skills</h3>
       <form>
-        <input type="radio" name="food" value="Pizza">Pizza<br>
-        <input type="radio" name="food" value="Tacos">Tacos<br>
-        <input type="radio" name="food" value="Salad">Salad<br>
+        <input type="radio" name="food" value="Pizza"/>Pizza<br>
+        <input type="radio" name="food" value="Tacos"/>Tacos<br>
+        <input type="radio" name="food" value="Salad"/>Salad<br>
 
-        <input type="checkbox" name="skills" value="HTML">I know HTML<br>
-        <input type="checkbox" name="skills" value="JavaScript">I know JavaScript<br>
+        <input type="checkbox" name="skills" value="HTML"/>I know HTML<br>
+        <input type="checkbox" name="skills" value="JavaScript"/>I know JavaScript<br>
       </form>
     </div>
     <div class="column">
@@ -202,7 +212,7 @@
     </form>
   </div>
 
-  <div>
+  <!--OLD VERSION FORM STUFF<div>
     <h2>Let's try a form that does not really do anything yet. </h2>
     <form>
       First name: <br>
@@ -230,7 +240,7 @@
 
       <input type="submit" value="Submit"><br>
     </form>
-  </div>
+  </div> -->
   <!-- Im BLUE stuff section for fun-->
   <div>
     <h2>This is my h2 Heading</h2>
