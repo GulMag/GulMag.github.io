@@ -271,7 +271,21 @@ html {
   margin-top: 20px;
 }
 
+/*GAME STYLES*/
 
+.wrapper {
+  width:65vmin;
+  height:70vmin;
+  background: #052935
+}
+
+.game-details{
+  color:#0099cc;
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 20px 27px;
+  display:flex;
+}
 
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 800px) {
