@@ -291,6 +291,7 @@ html {
   font-weight: 500;
   padding: 20px 27px;
   display:flex;
+  justify-content: space-between;
 }
 
 .play-board{
