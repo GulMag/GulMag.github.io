@@ -279,6 +279,8 @@ html {
 .wrapper {
   width:65vmin;
   height:70vmin;
+  display:flex;
+  flex-direction: column;
   border-radius:5px; 
   background: #052935
 }
