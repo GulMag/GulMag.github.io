@@ -3,6 +3,7 @@
 body {
     background-color: rgb(212, 212, 212); 
     margin-left: 80px;
+    min-height: 100vh;
 }
 
 p {
@@ -276,6 +277,7 @@ html {
 .wrapper {
   width:65vmin;
   height:70vmin;
+  border-radius:5px; 
   background: #052935
 }
 
