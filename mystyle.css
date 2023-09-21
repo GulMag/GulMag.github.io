@@ -297,6 +297,8 @@ html {
 .play-board{
   width:100%;
   height:100%;
+  display:grid; 
+  grid-template: repeat(30 , 1fr) / repeat(30 , 1fr); 
   background: #06313f;
 }
 
