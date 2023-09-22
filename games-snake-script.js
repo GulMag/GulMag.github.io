@@ -31,12 +31,14 @@ const changeDirection = (e) => {
 
 const initGame = () => {
     let htmlMarkup = `<div class = "food" style ="grid-area: $(foodY) / $(foodX)"></div>`;
+    
+    //Updating the snake's head position based on the current velocity
     snakeX += velocityX;
     snakeY += velocityY;
-    htmlMarkup += `<div class = "food" style ="grid-area: $(snakeY) / $(snakeX)"></div>`;
+    htmlMarkup += `<div class = "head" style ="grid-area: $(snakeY) / $(snakeX)"></div>`;
     playBoard.innerHTML = htmlMarkup;
 }
 
 changeFoodPosition();
-initGame();
-document.addEventListener("kexown", changeDirection); 
+setInterval(initGame, 125);
+document.addEventListener("keydown", changeDirection); 
