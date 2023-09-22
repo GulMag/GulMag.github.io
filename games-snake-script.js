@@ -46,11 +46,15 @@ const changeDirection = e => {
     }
 }
 
+//Calling changeDirection on each key click and passing kex dataset value as an object
+controls.forEach(button => button.addEvenListener("click", () => changeDirection({ key: button.dataset.key })));
+
+
 const initGame = () => {
     if (gameOver) return handleGameOver(); 
     let htmlMarkup = `<div class = "food" style = "grid-area: ${foodY} / ${foodX}"></div>`;
 
-    console.log(snakeBody);
+    //console.log(snakeBody);
 
     //Checking if the snake hit the food
     if(snakeX === foodX && snakeY === foodY) {
