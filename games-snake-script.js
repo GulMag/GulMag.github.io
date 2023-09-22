@@ -35,6 +35,7 @@ const changeDirection = e => {
 }
 
 const initGame = () => {
+    if (gameOver) return handleGameOver(); 
     let htmlMarkup = `<div class = "food" style = "grid-area: ${foodY} / ${foodX}"></div>`;
 
     //Checking if the snake hit the food
@@ -61,7 +62,7 @@ const initGame = () => {
 
     // Checking ig the snake's head is out of wall, if so getting gameOver to true
     if (snakeX <= 0 || snakeX>30 || snakeY <= 0 || snakeY> 30 ) {
-        console.log("Game over");
+        gameOver = true;
         //return gameOver = true; 
     }
 
