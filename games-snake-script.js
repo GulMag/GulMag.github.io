@@ -41,7 +41,6 @@ const initGame = () => {
     if(snakeX === foodX && snakeY === foodY) {
         changeFoodPosition();
         snakeBody.push([foodX, foodY]);
-        console.log(snakeBody);
         //score++;
         //highScore = score >= highScore ? score : highScore;
         //localStorage.setItem("high-score", highScore);
