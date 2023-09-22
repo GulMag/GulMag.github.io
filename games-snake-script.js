@@ -11,6 +11,7 @@ const changeFoodPosition = ()  => {
 
 const initGame = () => {
     let htmlMarkup = `<div class = "food" style = "grid-area: ${foodY} / ${foodX}"></div>`;
+    htmlMarkup = `<div class = "food" style = "grid-area: ${snakeY} / ${snakeX}"></div>`;
     playBoard.innerHTML = htmlMarkup; 
 }
 changeFoodPosition();
