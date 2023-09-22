@@ -22,7 +22,7 @@ const changeFoodPosition = ()  => {
     foodY = Math.floor(Math.random() * 30) +1;
 }
 
-const hangelGameOver = () => {
+const handleGameOver = () => {
     // Clearing the timer and reloading the page on game over
     clearInterval(setIntervalId);
     alert("Game Over! Press OK to replay...");
@@ -49,10 +49,9 @@ const changeDirection = e => {
 }
 
 //Calling changeDirection on each key click and passing kex dataset value as an object
-HTMLFormControlsCollection.forEach(button => button.addEvenListener("click", () => changeDirection({ key: button.dataset.key })));
+controls.forEach(button => button.addEvenListener("click", () => changeDirection({ key: button.dataset.key })));
 
 const initGame = () => {
-
     if(gameOver) return handleGameOver();
     let html= `<div class = "food" style ="grid-area: ${foodY} / ${foodX}"></div>`;
     
