@@ -47,7 +47,7 @@ const changeDirection = e => {
 }
 
 //Calling changeDirection on each key click and passing kex dataset value as an object
-controls.forEach(button => button.addEvenListener("click", () => changeDirection({ key: button.dataset.key })));
+controls.forEach(button => button.addEventListener("click", () => changeDirection({ key: button.dataset.key })));
 
 
 const initGame = () => {
