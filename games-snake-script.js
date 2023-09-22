@@ -7,6 +7,8 @@ let gameOver = false;
 let foodX, foodY;
 let snakeX = 5, snakeY = 10;
 let velocityX=0, velocityY=0;
+let snakeBody=[];
+
 
 
 const changeFoodPosition = ()  => {
