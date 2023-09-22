@@ -8,6 +8,7 @@ let foodX, foodY;
 let snakeX = 5, snakeY = 10;
 let snakeBody=[];
 let velocityX=0, velocityY=0;
+let setIntervalId; 
 
 
 
@@ -89,5 +90,5 @@ const initGame = () => {
 }
 changeFoodPosition();
 //initGame();
-setInterval(initGame, 125); //head moves after 125 milliseconds
+setIntervalId = setInterval(initGame, 125); //head moves after 125 milliseconds
 document.addEventListener("keydown", changeDirection); 
