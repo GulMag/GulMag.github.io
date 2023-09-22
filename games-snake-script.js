@@ -1,6 +1,6 @@
 const playBoard = document.querySelector(".play-board");
 
-let foodX, foodY;
+let foodX=13, foodY=10;
 let snakeX = 5, snakeY = 10;
 
 const changeFoodPosition = ()  => {
