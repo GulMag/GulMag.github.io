@@ -56,7 +56,7 @@ const initGame = () => {
     
     //Checking if the snake hit the food
     if(snakeX === foodX && snakeY === foodY) {
-        updateFoodPosition();
+        changeFoodPosition();
         snakeBody.push([foodY, foodX]);
         score++;
         highScore = score >= highScore ? score : highScore;
