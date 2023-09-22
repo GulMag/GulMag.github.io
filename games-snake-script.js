@@ -38,14 +38,14 @@ const initGame = () => {
     //Checking if the snake hit the food
     if(snakeX === foodX && snakeY === foodY) {
         changeFoodPosition();
-        snakeBody.push([foodY, foodX]);
+        snakeBody.push([foodX, foodY]);
         score++;
         highScore = score >= highScore ? score : highScore;
         localStorage.setItem("high-score", highScore);
         scoreElement.innerText = `Score: ${score}`;
         highScoreElement.innerText = `High Score: ${highScore}`;
     }
-    
+
     //Updating the snake's head position based on the current velocity
     snakeX += velocityX;
     snakeY += velocityY;
