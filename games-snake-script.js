@@ -78,19 +78,18 @@ const initGame = () => {
     snakeBody[0] = [snakeX, snakeY];
 
     // Checking ig the snake's head is out of wall, if so getting gameOver to true
-    if (snakeY >= 0 || snakeX>30 || snakeY <= 0 || snakeY> 30 ) {
+    if (snakeX <= 0 || snakeX>30 || snakeY <= 0 || snakeY> 30 ) {
         return gameOver = true; 
     }
 
     for (let i =0; i<snakeBody.length; i++) {
         // Adding a div or each part o the snake's body
-        htmlMarkup += `<div class = "head" style ="grid-area: ${snakeBody[i][1]} / ${snakeBody[i][0]}"></div>`;
+        html += `<div class = "head" style ="grid-area: ${snakeBody[i][1]} / ${snakeBody[i][0]}"></div>`;
         //Checking if the snake head hit the body, if so set gameOver
         if (i !== 0 && snakeBody[0][1] === snakeBody[i][1] && snakeBody[0][0] === snakeBody[i][0]) {
             gameOver=true;
         }
     }
-    
     playBoard.innerHTML = html;
 }
 
