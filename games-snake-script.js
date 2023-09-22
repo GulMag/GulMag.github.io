@@ -1,7 +1,7 @@
 const playBoard = document.querySelector(".play-board");
 
-let foodX=13, foodY=10;
-let snakeX = 5, snakeY = 5;
+let foodX, foodY;
+let snakeX = 5, snakeY = 10;
 
 const changeFoodPosition = ()  => {
     // Passing a random 1-30 value as food position
