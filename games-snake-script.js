@@ -25,8 +25,8 @@ const changeDirection = (e) => {
     } else if (e.key === "ArrowRight") {
         velocityX = 1;
         velocityY = 0;
-
     }
+    initGame();
 }
 
 const initGame = () => {
