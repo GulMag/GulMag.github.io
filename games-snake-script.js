@@ -60,6 +60,11 @@ const initGame = () => {
     snakeX += velocityX;
     snakeY += velocityY;
 
+    // Checking ig the snake's head is out of wall, if so getting gameOver to true
+    if (snakeX <= 0 || snakeX>30 || snakeY <= 0 || snakeY> 30 ) {
+        return gameOver = true; 
+    }
+
 
     for (let i =0; i<snakeBody.length; i++) {
         // Adding a div or each part o the snake's body
