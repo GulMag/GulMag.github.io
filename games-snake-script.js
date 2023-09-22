@@ -13,7 +13,7 @@ let score=0;
 
 // Getting high score from the local storage
 let highScore = localStorage.getItem("high-score") || 0;
-highScoreElement.innerText = `High Score: $(highScore`;
+highScoreElement.innerText = `High Score: ${highScore}`;
 
 
 const changeFoodPosition = ()  => {
