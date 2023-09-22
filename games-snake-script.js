@@ -9,6 +9,7 @@ let snakeX = 5, snakeY = 10;
 let snakeBody=[];
 let velocityX=0, velocityY=0;
 let setIntervalId; 
+let score=0;
 
 
 
@@ -50,11 +51,12 @@ const initGame = () => {
     if(snakeX === foodX && snakeY === foodY) {
         changeFoodPosition();
         snakeBody.push([foodX, foodY]);
-        //score++;
-        //highScore = score >= highScore ? score : highScore;
-        //localStorage.setItem("high-score", highScore);
-        //scoreElement.innerText = `Score: ${score}`;
-        //highScoreElement.innerText = `High Score: ${highScore}`;
+        score++;
+        
+        highScore = score >= highScore ? score : highScore;
+        localStorage.setItem("high-score", highScore);
+        scoreElement.innerText = `Score: ${score}`;
+        highScoreElement.innerText = `High Score: ${highScore}`;
     }
 
     // Shifting fowrward the values of the elements in the snake body by one
