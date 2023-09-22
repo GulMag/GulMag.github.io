@@ -30,7 +30,6 @@ const changeDirection = e => {
         velocityX = 1;
         velocityY = 0;
     }
-    initGame(); 
 }
 
 const initGame = () => {
@@ -46,6 +45,6 @@ const initGame = () => {
 
 }
 changeFoodPosition();
-initGame();
-//getInterval(initGame(), 125); //head moves after 125 milliseconds
+//initGame();
+getInterval(initGame(), 125); //head moves after 125 milliseconds
 document.addEventListener("keydown", changeDirection); 
