@@ -61,7 +61,8 @@ const initGame = () => {
 
     // Checking ig the snake's head is out of wall, if so getting gameOver to true
     if (snakeX <= 0 || snakeX>30 || snakeY <= 0 || snakeY> 30 ) {
-        return gameOver = true; 
+        console.log("Game over");
+        //return gameOver = true; 
     }
 
 
