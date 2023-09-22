@@ -55,8 +55,6 @@ const initGame = () => {
     snakeX += velocityX;
     snakeY += velocityY;
 
-    htmlMarkup += `<div class = "head" style ="grid-area: ${snakeY} / ${snakeX}"></div>`;
-
 
     for (let i =0; i<snakeBody.length; i++) {
         // Adding a div or each part o the snake's body
