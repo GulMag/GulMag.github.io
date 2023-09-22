@@ -30,6 +30,7 @@ const changeDirection = e => {
         velocityX = 1;
         velocityY = 0;
     }
+    initGame(); 
 }
 
 const initGame = () => {
