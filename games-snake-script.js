@@ -46,7 +46,6 @@ const changeDirection = e => {
         velocityX = 1;
         velocityY = 0;
     }
-    initGame();
 }
 
 //Calling changeDirection on each key click and passing kex dataset value as an object
