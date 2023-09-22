@@ -280,9 +280,12 @@ html {
   width:65vmin;
   height:70vmin;
   display:flex;
+  overflow:hidden;
   flex-direction: column;
+  justify-content: center;
   border-radius:5px; 
-  background: #052935
+  background: #052935;
+  box-shadow: 0 20px 40px rgba(52, 87,220, 0.2);
 }
 
 .game-details{
@@ -310,11 +313,45 @@ html {
   background: #bac7ce
 }
 
+.controls {
+  display: none;
+  justify-content: space-between;
+}
+
+.controls i {
+  padding: 25px 0;
+  text-align: center;
+  font-size: 1.3rem;
+  color:#8a10a2;
+  width: calc(100%/4);
+  cursor: pointer;
+  border-right: 1px solid #b152c4;
+}
+
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 800px) {
   .leftcolumn, .rightcolumn {   
     width: 100%;
     padding: 0;
+  }
+
+  .wrapper {
+    width: 90 vmin;
+    height: 115 vmin;
+  }
+
+  .game-details {
+    font-size: 1rem;
+    padding: 15px 27px;
+  }
+
+  .controls {
+    display: flex;
+  }
+
+  .controls i {
+    padding: 15px 0;
+    font-size: 1 rem;
   }
 }
 
