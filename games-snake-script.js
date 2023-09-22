@@ -29,7 +29,7 @@ const hangelGameOver = () => {
     location.reload();
 }
 
-const changeDirection = (e) => {
+const changeDirection = e => {
     // Changing velocity value based on key press
     if(e.key === "ArrowUp" && velocityY!=1) {
         velocityX = 0;
