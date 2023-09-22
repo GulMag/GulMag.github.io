@@ -3,6 +3,7 @@ const scoreElement = document.querySelector(".score");
 const highScoreElement = document.querySelector(".high-score");
 const controls = document.querySelectorAll(".controls i");
 
+let gameOver = false;
 let foodX, foodY;
 let snakeX = 5, snakeY = 10;
 let velocityX=0, velocityY=0;
@@ -33,9 +34,16 @@ const changeDirection = e => {
 
 const initGame = () => {
     let htmlMarkup = `<div class = "food" style = "grid-area: ${foodY} / ${foodX}"></div>`;
+
+    //Updating the snake's head position based on the current velocity
+    snakeX += velocityX;
+    snakeY += velocityY;
+   
     htmlMarkup += `<div class = "head" style = "grid-area: ${snakeY} / ${snakeX}"></div>`;
     playBoard.innerHTML = htmlMarkup; 
+
+
 }
 changeFoodPosition();
-initGame(); 
+getInterval(initGame(), 125); //head moves after 125 milliseconds
 document.addEventListener("keydown", changeDirection); 
