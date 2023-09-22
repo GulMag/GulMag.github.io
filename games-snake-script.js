@@ -45,5 +45,6 @@ const initGame = () => {
 
 }
 changeFoodPosition();
-getInterval(initGame(), 125); //head moves after 125 milliseconds
+initGame();
+//getInterval(initGame(), 125); //head moves after 125 milliseconds
 document.addEventListener("keydown", changeDirection); 
