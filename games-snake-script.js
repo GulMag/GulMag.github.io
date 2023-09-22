@@ -9,6 +9,23 @@ const changeFoodPosition = ()  => {
     foodY = Math.floor(Math.random() * 30) +1;
 }
 
+const changeDirection = e => {
+    // Changing velocity value based on key press
+    if(e.key === "ArrowUp" && velocityY!=1) {
+        velocityX = 0;
+        velocityY = -1;
+    } else if (e.key === "ArrowDown" && velocityY!=-1) {
+        velocityX = 0;
+        velocityY = 1;
+    } else if (e.key === "ArrowLeft" && velocityX!=1) {
+        velocityX = -1;
+        velocityY = 0;
+    } else if (e.key === "ArrowRight" && velocityX!=-1) {
+        velocityX = 1;
+        velocityY = 0;
+    }
+}
+
 const initGame = () => {
     let htmlMarkup = `<div class = "food" style = "grid-area: ${foodY} / ${foodX}"></div>`;
     htmlMarkup += `<div class = "head" style = "grid-area: ${snakeY} / ${snakeX}"></div>`;
@@ -16,3 +33,4 @@ const initGame = () => {
 }
 changeFoodPosition();
 initGame(); 
+document.addEventListener("keydown", changeDirection); 
