@@ -46,11 +46,13 @@ const initGame = () => {
         highScoreElement.innerText = `High Score: ${highScore}`;
     }
 
+    snakeBody[0] = [snakeX, snakeY]; // setting first element of snake body
+
     //Updating the snake's head position based on the current velocity
     snakeX += velocityX;
     snakeY += velocityY;
 
-    snakeBody[0] = [snakeX, snakeY];
+  
 
 
     for (let i =0; i<snakeBody.length; i++) {
