@@ -6,8 +6,8 @@ const controls = document.querySelectorAll(".controls i");
 let gameOver = false;
 let foodX, foodY;
 let snakeX = 5, snakeY = 10;
-let velocityX=0, velocityY=0;
 let snakeBody=[];
+let velocityX=0, velocityY=0;
 
 
 
@@ -41,14 +41,15 @@ const initGame = () => {
     if(snakeX === foodX && snakeY === foodY) {
         changeFoodPosition();
         snakeBody.push([foodX, foodY]);
-        score++;
-        highScore = score >= highScore ? score : highScore;
-        localStorage.setItem("high-score", highScore);
-        scoreElement.innerText = `Score: ${score}`;
-        highScoreElement.innerText = `High Score: ${highScore}`;
+        console.log(snakeBody);
+        //score++;
+        //highScore = score >= highScore ? score : highScore;
+        //localStorage.setItem("high-score", highScore);
+        //scoreElement.innerText = `Score: ${score}`;
+        //highScoreElement.innerText = `High Score: ${highScore}`;
     }
 
-    snakeBody[0] = [snakeX, snakeY]; // setting first element of snake body
+    //snakeBody[0] = [snakeX, snakeY]; // setting first element of snake body
 
     //Updating the snake's head position based on the current velocity
     snakeX += velocityX;
