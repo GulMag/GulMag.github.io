@@ -3,6 +3,7 @@
 body {
     background-color: rgb(212, 212, 212); 
     margin-left: 80px;
+    margin-right: 80px;
     min-height: 100vh;
     align-items:center;
     justify-content:center; 
@@ -274,6 +275,7 @@ html {
   margin-top: 20px;
 }
 
+/******************************************************/
 /*GAME STYLES*/
 
 .wrapper {
