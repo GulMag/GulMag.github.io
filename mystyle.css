@@ -281,8 +281,11 @@ html {
   height:70vmin;
   top: 80px;
   display:flex;
+  margin-top: 10vmin;
+  margin-left: 50vmin;
+  margin-right: 50vmin;
   overflow:hidden;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   border-radius:5px; 
   background: #052935;
