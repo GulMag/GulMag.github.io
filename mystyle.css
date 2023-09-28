@@ -279,6 +279,7 @@ html {
 .wrapper {
   width:65vmin;
   height:70vmin;
+  top: 80px;
   display:flex;
   overflow:hidden;
   flex-direction: column;
