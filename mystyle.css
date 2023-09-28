@@ -19,12 +19,12 @@ p {
 }*/
 
 h2 {
-  color: rgb(255, 255, 255); 
+  color: rgb(0, 0, 0); 
   /*margin-left: 20px;*/
   text-align: center;
   background-color: #2d7097;
   font-weight:normal;
-  padding: 30px;
+  padding: 20px;
 }
 
 
