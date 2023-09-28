@@ -1,158 +1,164 @@
 <!DOCTYPE html>
 <html>
-    <head><link rel="stylesheet" type="text/css" href="mystyle.css"></head>
+    <head><link rel="stylesheet" type="text/css" href="mystyle.css">
+    </head>
 
     <div class="header">
         <h1>Conflict</h1>
         <p>Resize the browser window to see the responsive effect.</p>
     </div>
+
+    <body>
       
-    <!--------------------Navigation Bar--------------------->
-    <div class="topnav">
-      <a href="index.html">Home</a>
-    </div>
-    <!------------------------------------------------------->   
+      
+  <!--------------------Navigation Bar--------------------->
+  <div w3-include-html="navbar.html"></div>
+  <script>
+    includeHTML();
+  </script> 
+  <!------------------------------------------------------->  
     <div>
-          <h2>SCAD Codebook</h2>
-          <p>
-            The Social Conflict Analysis Database (SCAD) contains information on protests, riots, strikes, and other social disturbances in Africa, Latin American and the Caribbean. 
-            Whereas conflict data is generally available for large-scale events such as civil and international war, 
-            the purpose of this dataset is to compile information on other types of social and political disorder. 
-            See <a href="www.scaddata.org">www.scaddata.org</a> for further information about the project.
-            The primary source of information for this dataset comes from searches of Associated Press and 
-            Agence France Presse newswires, as compiled by the Lexis-Nexis news service.
-          </p>
-          <h5>Search Procedure in Lexis-Nexis</h5>
-          <p>
-             <ol>
-               <li>Click on the “Browse” link at the top of the page.</li>
-               <li>Click “News”, then “Newswires and Press Releases”</li>
-               <li>Select “Agence France Presse – English”, “The Associated Press”, “Associated Press Online,” and
-                “Associated Press International”. Then click “OK – Continue”.</li>
-               <li>Click on “Advanced Options”</li>
-               <li>In the Build Your Own Segment Search dialogue box, enter your search terms: 
-                 HLEAD(country name) AND (protest OR strike OR riot OR violence OR attack).</li>
-             </ol>
-          </p>
-          <h5>Sorting Procedure</h5>
-          <p>
-            <ol>
-              <li>Begin with the oldest listed story and proceed chronologically. For each story, 
-                determine if this information is relevant to the data project. If not, discard the story.</li>
-              <li>During periods of civil conflict, defined by the start and end dates in the 
-                Uppsala Armed Conflict Database (see below for further details), code violent events 
-                associated with the civil conflicts but make sure to code these cases as ACD questionable = 1</li>
-              <li>Sometimes, many articles will cover a single news story or event. Group these articles together 
-                as a single event. Avoid double or triple counting a single event if there are multiple articles 
-                chronicling a story. However, use the most recently cited and/or most common estimates for 
-                disputed information, such as the number of deaths.</li>
-              <li>Sometimes, a single article will cover multiple events. Determine if the 
-                main actor(s), target(s), and issue(s) are different, and if so, code these as distinct events.</li>
-              <li>Code a new event if the actor(s), target(s), and issue(s) are different or if there is substantial 
-                time that elapses between one event and another. If the actors, targets, and issues are the same, 
-                but there is a brief lull in activity, code it as the same event, so long as there is significant 
-                “momentum” linking the time periods.</li>
-            </ol>
-          </p>
-          <h5>SCAD Variables</h5>
-          <dl>
-            <dt>Identification scheme</dt>
-            <dd>The “country code” column provides the Correlates of War (http://www.correlatesofwar.org/) 
-              numeric designation of the country. The “id” column lists the event number. 
-              These fields are combined to generate a single, unique “event id” code.</dd>
-            <dt>Start Date</dt>
-            <dd>Lists the day, month, and year in DD/MM/YYY format for when the event begins. 
-              If the exact day cannot be identified, this is the best approximation of the start date. 
-              The start year (styr), start month (stmo), start day (stday) are listed in separate columns.</dd>
-            <dt>End Date</dt>
-            <dd>Lists the day, month, and year in DD/MM/YYYY format for when the event ends. If the exact day 
-              cannot be identified, this is the best approximation of the end date. The end year (eyr), 
-              end month (emo), end day (eday) are listed in separate columns.</dd>
-            <dt>Duration</dt>
-            <dd>The number of days the event lasted.</dd>
-            <dt>Event Type</dt>
-            <dd>
-              <ul>
-                <li>Organized demonstration: demonstrations organized by a formal group or organization.</li>
-                <li>Spontaneous demonstration: demonstrations without formal organization.</li>
-                <li>Organized riot: rioting organized by a formal group or organization.</li>
-                <li>Spontaneous riot: rioting without formal organization.</li>
-                <li>General strike: a labor strike affecting many industries or sectors.</li>
-                <li>Limited strike: a labor strike limited to a single industry or sector.</li>
-                <li>Pro-government violence: repression initiated by government actors or violence in support of the government.</li>
-                <li>Anti-government violence: violence against government targets by permanent or semi-permanent militias.</li>
-                <li>Extra-government violence: violence involving at least one permanent or semi-permanent militiaGovernment forces are not included as an actor or a target (e.g. communal conflict).</li>
-                <li>Intra-government violence: fighting between two armed factions within the government (e.g. mutinies or coups).</li>
-              </ul>
-            </dd>
-            <dt>Escalation</dt>
-            <dd>This notes whether or not the type of action changed over the course of the event.</dd>
-            <dt>Actions and Targets</dt>
-            <dd>This provides the name of the principal actor(s) and targets(s)SCAD also notes whether 
-              or not the event targeted the central government or a regional government.</dd>
-            <dt>Number of Participants</dt>
-            <dt>Number of Deaths</dt>
-            <dd>Records the best estimate of the number of persons killed in the event. If multiple estimates are given, use the mean number of reported deaths or the most recent figures. 
-              If the exact number is not given, use the following codes:
-              <ul>
-                <li>-99 = unknown</li>
-                <li>-88 = unknown but probably small (less than 10)</li>
-                <li>-77 = unknown but probably large (10 or more)</li>
-              </ul></dd>
-            <dt>Repression</dt>
-            <dd>This notes whether or not the state used repression to subdue the event, 
-              and notes whether repression was lethal or non-lethal.</dd>
-            <dt>Location</dt>
-            <dd>This notes the name of the town or region in which the event occurred and gives a 
-              numerical coding for the type of location (e.g. urban or rural). The full download version of the data 
-              also includes longitude and latitude coordinates for all events. See the codebook for more details. </dd>
-            <dt>Issues</dt>
-            <dd>This notes up to three issues associated with the event.</dd>
-            <dt>Notes</dt>
-            <dd>When there were inconsistencies in reporting, approximations, or other potential issues with the event record, 
-              this field provides comments to the user. </dd>
-            <dt>Female_Event (categorical)</dt>
-            <dd>This column notes whether women and girls play a significant role in the event in question. This is coded as one if: a. the main actor(s) in the event organize on the basis of female gender identity; b. the target(s) of the event are explicitly female; or c. the motivating issue centers on matters of specific concern to women (e.g.
-              reproductive rights). Events coded as zero may or may not involve women as participants, as women may play important roles in social organizations and protests otherwise listed. For this column to be coded as one, the main focus of the event, or the identity of the participants, must be explicitly related to women.
-              1 = yes, 0 = no</dd>
-            <dt>LGBTQ_Issue (categorical)</dt>
-            <dd>This column notes whether members of the Lesbian, Gay, Bisexual, Transgender, or Queer/Questioning (LGBTQ) community play a significant role in the event in question. This is coded as 1 if: a. the main actor(s) in the event organize on the basis of LGBTQ identity; b. the target(s) of the event are explicitly LGBTQ; or c. the motivating issue centers on matters of specific concern to the LGBTQ community (e.g. same-sex marriage). Events coded as zero may or may not involve LGBTQ individuals as participants, as they may play important roles in social organizations and protests otherwise listed. For this column to be coded as one, the main focus of the event, or the identity of the participants, must be explicitly related LGBTQ persons.
-              1 = yes, 0 = no</dd>
-          </dl>
-          <h5>ARMED CONFLICT VERSUS SOCIAL CONFLICT</h5>
-          <p>SCAD is mainly a resource for information on social conflict and excludes armed conflict such as organized rebellions, 
-            civil wars, and international war (e.g. the war in the Democratic Republic of Congo). There are other superb datasets 
-            that provide detailed information about these types of violence. SCAD thus excludes events that were part of organized armed conflicts 
-            as defined by the Uppsala University Armed Conflicts Database (ACD). The ACD defines an armed conflict as: 
-            "a contested incompatibility that concerns government and/or territory where the use of armed force between two parties, 
-            of which at least one is the government of a state, results in at least 25 battle-related deaths in one calendar year."</p>
-          <h5>Longitude and Latitude</h5>
-          <p>
-            GeoSCAD estimates, with as much precision possible, the latitude and longitude coordinates for each event location. 
-            Yahoo! Maps, www.geonames.org, www.fallingrain.com, and www.itouchmap.com/latlong were consulted to pinpoint event locations.
-          </p>
-          <p>
-            For major cities and towns, identifying the X/Y coordinates was relatively straightforward. However, 
-            smaller towns, villages, refugee camps, etc, sometimes did not appear in gazetteers and required additional 
-            location cues—e.g. “10km south of Bujumbura”—and the given coordinates are rough approximations. 
-            At other times, the news report did not mention a specific location, but rather, the district or region 
-            was given (these correspond to locnum = 6 in the SCAD file). In such cases, we placed the point at the approximate 
-            center of the region. Point locations that are estimated rather than precise are flagged in the location_precision column. 
-            Care should be taken when performing spatial analyses of such cases.
-          </p>
-          <p>
-            For several events, the location is listed as being “nationwide” or “unknown” (locnum 7, -99). 
-            These events are assigned at or near the centroid, or geographic center point, of the country. 
-            For the sake of clarity, for location “unknown” events, the point was offset from “nationwide” 
-            by subtracting 0.5 from the longitude and latitude, with the exception of very small countries 
-            where smaller increments were used.
-          </p>
-          <p>
-            When further clarifications are needed, additional information about the location and geocoding procure are noted in the geo_comments column.
+      <h2>SCAD Codebook</h2>
+      <p>
+        The Social Conflict Analysis Database (SCAD) contains information on protests, riots, strikes, and other social disturbances in Africa, Latin American and the Caribbean. 
+        Whereas conflict data is generally available for large-scale events such as civil and international war, 
+        the purpose of this dataset is to compile information on other types of social and political disorder. 
+        See <a href="www.scaddata.org">www.scaddata.org</a> for further information about the project.
+        The primary source of information for this dataset comes from searches of Associated Press and 
+        Agence France Presse newswires, as compiled by the Lexis-Nexis news service.
+      </p>
+      <h5>Search Procedure in Lexis-Nexis</h5>
+      <p>
+          <ol>
+            <li>Click on the “Browse” link at the top of the page.</li>
+            <li>Click “News”, then “Newswires and Press Releases”</li>
+            <li>Select “Agence France Presse – English”, “The Associated Press”, “Associated Press Online,” and
+            “Associated Press International”. Then click “OK – Continue”.</li>
+            <li>Click on “Advanced Options”</li>
+            <li>In the Build Your Own Segment Search dialogue box, enter your search terms: 
+              HLEAD(country name) AND (protest OR strike OR riot OR violence OR attack).</li>
+          </ol>
+      </p>
+      <h5>Sorting Procedure</h5>
+      <p>
+        <ol>
+          <li>Begin with the oldest listed story and proceed chronologically. For each story, 
+            determine if this information is relevant to the data project. If not, discard the story.</li>
+          <li>During periods of civil conflict, defined by the start and end dates in the 
+            Uppsala Armed Conflict Database (see below for further details), code violent events 
+            associated with the civil conflicts but make sure to code these cases as ACD questionable = 1</li>
+          <li>Sometimes, many articles will cover a single news story or event. Group these articles together 
+            as a single event. Avoid double or triple counting a single event if there are multiple articles 
+            chronicling a story. However, use the most recently cited and/or most common estimates for 
+            disputed information, such as the number of deaths.</li>
+          <li>Sometimes, a single article will cover multiple events. Determine if the 
+            main actor(s), target(s), and issue(s) are different, and if so, code these as distinct events.</li>
+          <li>Code a new event if the actor(s), target(s), and issue(s) are different or if there is substantial 
+            time that elapses between one event and another. If the actors, targets, and issues are the same, 
+            but there is a brief lull in activity, code it as the same event, so long as there is significant 
+            “momentum” linking the time periods.</li>
+        </ol>
+      </p>
+      <h5>SCAD Variables</h5>
+      <dl>
+        <dt>Identification scheme</dt>
+        <dd>The “country code” column provides the Correlates of War (http://www.correlatesofwar.org/) 
+          numeric designation of the country. The “id” column lists the event number. 
+          These fields are combined to generate a single, unique “event id” code.</dd>
+        <dt>Start Date</dt>
+        <dd>Lists the day, month, and year in DD/MM/YYY format for when the event begins. 
+          If the exact day cannot be identified, this is the best approximation of the start date. 
+          The start year (styr), start month (stmo), start day (stday) are listed in separate columns.</dd>
+        <dt>End Date</dt>
+        <dd>Lists the day, month, and year in DD/MM/YYYY format for when the event ends. If the exact day 
+          cannot be identified, this is the best approximation of the end date. The end year (eyr), 
+          end month (emo), end day (eday) are listed in separate columns.</dd>
+        <dt>Duration</dt>
+        <dd>The number of days the event lasted.</dd>
+        <dt>Event Type</dt>
+        <dd>
+          <ul>
+            <li>Organized demonstration: demonstrations organized by a formal group or organization.</li>
+            <li>Spontaneous demonstration: demonstrations without formal organization.</li>
+            <li>Organized riot: rioting organized by a formal group or organization.</li>
+            <li>Spontaneous riot: rioting without formal organization.</li>
+            <li>General strike: a labor strike affecting many industries or sectors.</li>
+            <li>Limited strike: a labor strike limited to a single industry or sector.</li>
+            <li>Pro-government violence: repression initiated by government actors or violence in support of the government.</li>
+            <li>Anti-government violence: violence against government targets by permanent or semi-permanent militias.</li>
+            <li>Extra-government violence: violence involving at least one permanent or semi-permanent militiaGovernment forces are not included as an actor or a target (e.g. communal conflict).</li>
+            <li>Intra-government violence: fighting between two armed factions within the government (e.g. mutinies or coups).</li>
+          </ul>
+        </dd>
+        <dt>Escalation</dt>
+        <dd>This notes whether or not the type of action changed over the course of the event.</dd>
+        <dt>Actions and Targets</dt>
+        <dd>This provides the name of the principal actor(s) and targets(s)SCAD also notes whether 
+          or not the event targeted the central government or a regional government.</dd>
+        <dt>Number of Participants</dt>
+        <dt>Number of Deaths</dt>
+        <dd>Records the best estimate of the number of persons killed in the event. If multiple estimates are given, use the mean number of reported deaths or the most recent figures. 
+          If the exact number is not given, use the following codes:
+          <ul>
+            <li>-99 = unknown</li>
+            <li>-88 = unknown but probably small (less than 10)</li>
+            <li>-77 = unknown but probably large (10 or more)</li>
+          </ul></dd>
+        <dt>Repression</dt>
+        <dd>This notes whether or not the state used repression to subdue the event, 
+          and notes whether repression was lethal or non-lethal.</dd>
+        <dt>Location</dt>
+        <dd>This notes the name of the town or region in which the event occurred and gives a 
+          numerical coding for the type of location (e.g. urban or rural). The full download version of the data 
+          also includes longitude and latitude coordinates for all events. See the codebook for more details. </dd>
+        <dt>Issues</dt>
+        <dd>This notes up to three issues associated with the event.</dd>
+        <dt>Notes</dt>
+        <dd>When there were inconsistencies in reporting, approximations, or other potential issues with the event record, 
+          this field provides comments to the user. </dd>
+        <dt>Female_Event (categorical)</dt>
+        <dd>This column notes whether women and girls play a significant role in the event in question. This is coded as one if: a. the main actor(s) in the event organize on the basis of female gender identity; b. the target(s) of the event are explicitly female; or c. the motivating issue centers on matters of specific concern to women (e.g.
+          reproductive rights). Events coded as zero may or may not involve women as participants, as women may play important roles in social organizations and protests otherwise listed. For this column to be coded as one, the main focus of the event, or the identity of the participants, must be explicitly related to women.
+          1 = yes, 0 = no</dd>
+        <dt>LGBTQ_Issue (categorical)</dt>
+        <dd>This column notes whether members of the Lesbian, Gay, Bisexual, Transgender, or Queer/Questioning (LGBTQ) community play a significant role in the event in question. This is coded as 1 if: a. the main actor(s) in the event organize on the basis of LGBTQ identity; b. the target(s) of the event are explicitly LGBTQ; or c. the motivating issue centers on matters of specific concern to the LGBTQ community (e.g. same-sex marriage). Events coded as zero may or may not involve LGBTQ individuals as participants, as they may play important roles in social organizations and protests otherwise listed. For this column to be coded as one, the main focus of the event, or the identity of the participants, must be explicitly related LGBTQ persons.
+          1 = yes, 0 = no</dd>
+      </dl>
+      <h5>ARMED CONFLICT VERSUS SOCIAL CONFLICT</h5>
+      <p>SCAD is mainly a resource for information on social conflict and excludes armed conflict such as organized rebellions, 
+        civil wars, and international war (e.g. the war in the Democratic Republic of Congo). There are other superb datasets 
+        that provide detailed information about these types of violence. SCAD thus excludes events that were part of organized armed conflicts 
+        as defined by the Uppsala University Armed Conflicts Database (ACD). The ACD defines an armed conflict as: 
+        "a contested incompatibility that concerns government and/or territory where the use of armed force between two parties, 
+        of which at least one is the government of a state, results in at least 25 battle-related deaths in one calendar year."</p>
+      <h5>Longitude and Latitude</h5>
+      <p>
+        GeoSCAD estimates, with as much precision possible, the latitude and longitude coordinates for each event location. 
+        Yahoo! Maps, www.geonames.org, www.fallingrain.com, and www.itouchmap.com/latlong were consulted to pinpoint event locations.
+      </p>
+      <p>
+        For major cities and towns, identifying the X/Y coordinates was relatively straightforward. However, 
+        smaller towns, villages, refugee camps, etc, sometimes did not appear in gazetteers and required additional 
+        location cues—e.g. “10km south of Bujumbura”—and the given coordinates are rough approximations. 
+        At other times, the news report did not mention a specific location, but rather, the district or region 
+        was given (these correspond to locnum = 6 in the SCAD file). In such cases, we placed the point at the approximate 
+        center of the region. Point locations that are estimated rather than precise are flagged in the location_precision column. 
+        Care should be taken when performing spatial analyses of such cases.
+      </p>
+      <p>
+        For several events, the location is listed as being “nationwide” or “unknown” (locnum 7, -99). 
+        These events are assigned at or near the centroid, or geographic center point, of the country. 
+        For the sake of clarity, for location “unknown” events, the point was offset from “nationwide” 
+        by subtracting 0.5 from the longitude and latitude, with the exception of very small countries 
+        where smaller increments were used.
+      </p>
+      <p>
+        When further clarifications are needed, additional information about the location and geocoding procure are noted in the geo_comments column.
 Finally, a very small share of events could not be georeferenced because the location could not be found or the description was too vague. 
 Users may choose to drop such cases or assign them to points as they see fit.
-          </p>
+      </p>
     </div>
     
+  </body>
     
 </html>
