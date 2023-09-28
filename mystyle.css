@@ -279,7 +279,6 @@ html {
 .wrapper {
   width:65vmin;
   height:70vmin;
-  top: 80px;
   display:flex;
   margin-top: 10vmin;
   margin-left: 50vmin;
