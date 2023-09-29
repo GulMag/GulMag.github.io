@@ -1,4 +1,6 @@
+<!DOCTYPE html>
 
+<html>
 
 <head>
     <link rel="stylesheet" type="text/css" href="mystyle.css">
@@ -114,7 +116,7 @@
     </div> 
 </body>
 
-
+</html>
 
 <!---------
 
