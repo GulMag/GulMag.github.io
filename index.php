@@ -1,116 +1,16 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <link rel="stylesheet" type="text/css" href="mystyle.css">
-    <script>
-      function includeHTML() {
-        var z, i, elmnt, file, xhttp;
-        /* Loop through a collection of all HTML elements: */
-        z = document.getElementsByTagName("*");
-        for (i = 0; i < z.length; i++) {
-          elmnt = z[i];
-          /*search for elements with a certain atrribute:*/
-          file = elmnt.getAttribute("w3-include-html");
-          if (file) {
-            /* Make an HTTP request using the attribute value as the file name: */
-            xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() {
-              if (this.readyState == 4) {
-                if (this.status == 200) {elmnt.innerHTML = this.responseText;}
-                if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
-                /* Remove the attribute, and call this function once more: */
-                elmnt.removeAttribute("w3-include-html");
-                includeHTML();
-              }
-            }
-            xhttp.open("GET", file, true);
-            xhttp.send();
-            /* Exit the function: */
-            return;
-          }
-        }
-      };
-    </script>
-    <!-- JAVA SCRIPT STUFF 
-    Difference alert and prompt: An alert simply displays a message to the user, 
-    where as the prompt actually asks the user for some sort of input.
-    -->
+<!--<!DOCTYPE html>-->
 
-    <script type = "text/javascript">
-      function addParagraphText() {
-        document.getElementById("para1").innerHTML = "Thanks for adding text!";
-      }
+<?php
+  $title = 'Home';
+  $page = 'home';
+  include_once('header.php');
+
+?>
+
+
+
     
-      function displayInput() {
-        var testInput = document.getElementById("name").value;
-
-        if (testInput.length ==0) {
-          document.getElementById("para").innerHTML = "Hey, you didn't type anything!";
-        } 
-        else {
-          document.getElementById("para").innerHTML = testInput; 
-        }
-      }
-
-      function myAlertMath() {
-        var userNumber = document.getElementById("mathInput").value; 
-        alert("Your number x 5 is " + userNumber * 5);
-      }
-
-      function myPrompt() {
-        var person = prompt("Please enter your name!", "Frida");
-        if (person != "") {
-          document.getElementById("testPrompt").innerHTML = "Hello person named " + person + "! How are you today?"
-        } else {
-          alert("Hey, no input");
-        }
-      }
-
-      function checkField1() {
-        var field = document.getElementById("field1").value; 
-        if (field.length < 5) {
-          document.getElementById("message1").innerHTML = "Too short!";
-        } else {
-          document.getElementById("message1").innerHTML = "Right on!";
-        }
-      }
-
-      function checkField2() {
-        var field = document.getElementById("field2").value; 
-        if (field != "") {
-          document.getElementById("message2").innerHTML = "Ok!";
-        } else {
-          document.getElementById("message2").innerHTML = "You gotta enter sthg yo";
-        }
-      }
-
-      function checkPassword() {
-        var field = document.getElementById("password_entered").value; 
-        var regex = /^[A-Za-z]{5,10}$/;
-        if (regex.test(field)) {
-          document.getElementById("messagePassword").innerHTML = "Input accepted!";
-        } else {
-          document.getElementById("messagePassword").innerHTML = "Enter at least 5 letters!";
-        }
-      }
-
-    </script>
-
-  </head>
-
-  <div class="header">
-    <center>
-    <h1>Website</h1>
-    </center>
-    <p>Resize the browser window to see the responsive effect.</p>
-  </div>
-    
-  <body onload = "alert('Sweet daaaawg! The content has loaded');">
-    <!--------------------Navigation Bar--------------------->
-    <div w3-include-html="navbar.html"></div>
-    <script>
-      includeHTML();
-    </script> 
+  
     <!------------------------------------------------------->
   <div>
     <h2> Let's try some javascrupt stuff (button)</h2>
