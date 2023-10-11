@@ -253,7 +253,7 @@ html {
 .cardtext {
   background-color: rgb(212, 212, 212);
   opacity: 0.6;
-  padding: 20px;
+  /*padding: 20px;*/
   margin-top: 20px;
 }
 
