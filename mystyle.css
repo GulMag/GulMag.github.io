@@ -153,7 +153,6 @@ html {
 .topnav {
   overflow: hidden;
   background-color: #333;
-  padding: 20px;
 }
 
 /* Style the topnav links */
@@ -232,7 +231,7 @@ html {
 
 /* Right column */
 .rightcolumn {
-  float: left;
+  float: right;
   width: 25%;
   /*padding-left: 20px;*/
   /*background-color: lightblue;*/
